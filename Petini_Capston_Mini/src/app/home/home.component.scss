@@ -9,6 +9,13 @@
   background: linear-gradient(to right, rgb(238, 42, 123) 0%, rgb(255, 125, 184) 100%);
 }
 
+.gradient-text-1{
+  background: rgb(238, 42, 123) 0%;
+  background: linear-gradient(to right, rgb(238, 42, 123) 0%, rgb(255, 125, 184) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .btn-register {
   color: white !important;
   font-weight: 500;
@@ -36,10 +43,7 @@
 .logo-text {
   letter-spacing: 7px;
   font-weight: 500;
-  background: rgb(238, 42, 123) 0%;
-  background: linear-gradient(to right, rgb(238, 42, 123) 0%, rgb(255, 125, 184) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+
 }
 
 
@@ -156,110 +160,24 @@
   }
 }
 
-
-
-.third-content {
-
-  height: 700px;
-  overflow: hidden;
-
-
-  .contain-box {
-    background-image: url(/assets/images/world-map-gray.png);
-    margin-bottom: 30px;
-
-    display: flex;
-    justify-content: center;
-
-    .content {
-      padding-top: 15px;
-
-      span {
-        color: #4c4c4c;
-        margin-bottom: 16px;
-        font-weight: 500;
-        font-family: MuseoSans, Roboto, sans-serif !important;
-      }
-
-      .col-md-4 {
-        background-image: url(/assets/images/homepage-1.png);
-        box-sizing: border-box;
-        background-size: cover;
-        border-radius: 6px;
-        width: 33.33333%;
-        height: 520px;
-
-        padding: 24px;
-        color: white;
-
-        span {
-          color: white;
-        }
-      }
-
-      .colum-8 {
-        background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 2%, rgba(0, 0, 0, 0.6) 18%, rgba(0, 0, 0, 0.5) 26%, rgba(0, 0, 0, 0.4) 36%, rgba(0, 0, 0, 0.2) 100%), url(/assets/images/homepage-2.png);
-
-
-        box-sizing: border-box;
-        background-size: cover;
-
-        border-radius: 6px;
-        height: 260px;
-        margin-bottom: 12px;
-        margin-left: 6px;
-
-        padding: 24px;
-        color: white;
-
-        span {
-          color: white;
-        }
-      }
-
-      .col-md-6 {
-        box-sizing: border-box;
-        height: 248px;
-        margin-bottom: 12px;
-
-      }
-
-      .bot-left {
-        background-image: url(/assets/images/homepage-3.png);
-        background-size: cover;
-
-        height: 247px;
-        padding: 24px;
-        box-sizing: border-box;
-        border-radius: 6px;
-        color: white;
-
-        span {
-          color: white;
-        }
-      }
-
-      .bot-right {
-        background-image: url(/assets/images/homepage-4.png);
-        background-size: cover;
-
-
-
-        height: 247px;
-        padding: 24px;
-        box-sizing: border-box;
-        border-radius: 6px;
-        color: white;
-
-        span {
-          color: white;
-        }
-      }
-
+.third-content{
+  .content-title{
+    img{
+      height: 38px;
     }
   }
-
 }
+.bg-2{
+  background-image: url(/assets/images/bg-2.png);
+}
+.bg-3{
+  background-image: url(/assets/images/bg-3.jpg);
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
 
 .r-c-8 {
   margin-left: 6px;
