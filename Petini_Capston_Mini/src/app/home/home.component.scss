@@ -9,7 +9,7 @@
   background: linear-gradient(to right, rgb(238, 42, 123) 0%, rgb(255, 125, 184) 100%);
 }
 
-.gradient-text-1{
+.gradient-text-1 {
   background: rgb(238, 42, 123) 0%;
   background: linear-gradient(to right, rgb(238, 42, 123) 0%, rgb(255, 125, 184) 100%);
   -webkit-background-clip: text;
@@ -160,22 +160,34 @@
   }
 }
 
-.third-content{
-  .content-title{
-    img{
-      height: 38px;
-    }
-  }
+
+.item-img {
+  min-height: 290px;
+  max-height: 290px;
+  width: 100%;
 }
-.bg-2{
+
+.item-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-height: 48px;
+  min-height: 48px;
+  justify-content: center;
+}
+
+
+
+.img-line{
+  max-height:  38px;
+  min-height:  38px;
+}
+.bg-2 {
   background-image: url(/assets/images/bg-2.png);
 }
-.bg-3{
-  background-image: url(/assets/images/bg-3.jpg);
-  object-fit: cover;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+
 
 
 

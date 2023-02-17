@@ -9,7 +9,7 @@
   background: linear-gradient(to right, rgb(238, 42, 123) 0%, rgb(255, 125, 184) 100%);
 }
 
-.gradient-text-1{
+.gradient-text-1 {
   background: rgb(238, 42, 123) 0%;
   background: linear-gradient(to right, rgb(238, 42, 123) 0%, rgb(255, 125, 184) 100%);
   -webkit-background-clip: text;
@@ -22,7 +22,6 @@
 }
 
 .li-login {
-
   border-radius: 5px;
   width: fit-content;
 
@@ -32,7 +31,6 @@
     font-size: 20px;
     letter-spacing: 0.7px;
     font-weight: 500;
-
   }
 }
 
@@ -43,5 +41,11 @@
 .logo-text {
   letter-spacing: 7px;
   font-weight: 500;
+}
 
+.bg-3{
+  background-image: url(/assets/images/bg-3.jpg);
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

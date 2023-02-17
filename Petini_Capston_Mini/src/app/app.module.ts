@@ -35,6 +35,13 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ShopComponent } from './shop/shop.component';
+import { PetComponent } from './pet/pet.component';
+import { ServiceComponent } from './service/service.component';
+import { GuestComponent } from './guest/guest.component';
+import { ItemsComponent } from './items/items.component';
+import { PetDetailComponent } from './pet-detail/pet-detail.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +49,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    ShopComponent,
+    PetComponent,
+    ServiceComponent,
+    GuestComponent,
+    ItemsComponent,
+    PetDetailComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
