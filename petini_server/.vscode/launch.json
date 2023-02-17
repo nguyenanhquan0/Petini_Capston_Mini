@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-PetiniApplication<petini>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.capstone.mini.petini.PetiniApplication",
+            "projectName": "petini",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
