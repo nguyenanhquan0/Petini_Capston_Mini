@@ -10,4 +10,6 @@ public interface IUserService {
     public PetiniUser registerOwnerAccount(PetiniUser user);
 
     public PetiniUser getAuthenticatedUser();
+
+    public PetiniUser login(String username, String password);
 }

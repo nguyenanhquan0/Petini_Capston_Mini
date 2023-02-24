@@ -1,6 +1,7 @@
 package com.capstone.mini.petini.implementation;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -9,6 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.capstone.mini.petini.handlers.exceptions.AccountNotFoundException;
+import com.capstone.mini.petini.handlers.exceptions.InvalidUsernameOrPasswordException;
 import com.capstone.mini.petini.model.Cart;
 import com.capstone.mini.petini.model.Customer;
 import com.capstone.mini.petini.model.PetiniRole;
@@ -82,6 +84,16 @@ public class UserService implements IUserService {
         PetiniUser user = this.findUserByUsername(authenticateUser.getUsername());
 
         return user;
+    }
+
+    @Override
+    public PetiniUser login(String username, String password) {
+        Optional<PetiniUser> user = petiniUserRepo.findUserByUsername(username);
+        if (user.isEmpty() || !passwordEncoder.matches(password, user.get().getPassword())) {
+            throw new InvalidUsernameOrPasswordException();
+        }
+
+        return user.get();
     }
 
 }

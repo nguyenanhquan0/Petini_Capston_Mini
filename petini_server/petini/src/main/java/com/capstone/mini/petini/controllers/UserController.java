@@ -44,9 +44,10 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequestDto login) {
-        String token = jwtConfiguration.generateJwtString(login.getUsername());
+        PetiniUser loginUser = userService.login(login.getUsername(), login.getPassword());
+        String token = jwtConfiguration.generateJwtString(loginUser.getUsername());
         String expiredDate = dateFormatUtil.formatGivenDateTimeToString(jwtConfiguration.expireDate());
-        LoginResponseDto loginResponseDto = new LoginResponseDto(login.getUsername(), token, expiredDate);
+        LoginResponseDto loginResponseDto = new LoginResponseDto(loginUser.getUsername(), token, expiredDate);
 
         return new ResponseEntity<LoginResponseDto>(loginResponseDto, HttpStatus.OK);
     }
