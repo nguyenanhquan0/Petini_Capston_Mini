@@ -8,4 +8,6 @@ public interface IUserService {
     public PetiniUser registerCustomerAccount(PetiniUser user);
 
     public PetiniUser registerOwnerAccount(PetiniUser user);
+
+    public PetiniUser getAuthenticatedUser();
 }

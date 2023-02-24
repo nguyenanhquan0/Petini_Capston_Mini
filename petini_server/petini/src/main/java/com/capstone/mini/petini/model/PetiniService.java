@@ -16,7 +16,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class PetiniService {
+public class PetiniService extends BaseModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

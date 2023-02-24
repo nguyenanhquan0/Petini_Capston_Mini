@@ -19,7 +19,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class Product {
+public class Product extends BaseModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -31,7 +31,13 @@ public class Product {
     private @Setter Long price;
 
     @Column
-    private @Setter int quantity;
+    private @Setter Long quantity;
+
+    @Column(columnDefinition = "nvarchar(1000)")
+    private @Setter String description;
+
+    @Column
+    private @Setter String imageUrl;
 
     @ManyToMany(mappedBy = "products")
     private @Setter List<Cart> carts;

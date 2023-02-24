@@ -14,14 +14,9 @@ import lombok.Setter;
 
 @AllArgsConstructor
 public enum Role {
-    PASSENGER(Sets.newHashSet(Permission.BOOKING_CREATE, Permission.BOOKING_MODIFY, Permission.BOOKING_REMOVE,
-            Permission.BOOKING_CANCEL, Permission.PROMOTION_ADD, Permission.PROMOTION_MODIFY,
-            Permission.PROMOTION_VIEW)),
-    LANDLORD(Sets.newHashSet(Permission.HOMESTAY_CREATE, Permission.HOMESTAY_MODIFY, Permission.HOMESTAY_REMOVE,
-            Permission.BOOKING_CANCEL, Permission.PROMOTION_CREATE, Permission.PROMOTION_USAGE,
-            Permission.PROMOTION_VIEW)),
-    ADMIN(Sets.newHashSet(Permission.HOMESTAY_BAN, Permission.PROMOTION_CREATE, Permission.PROMOTION_MODIFY,
-            Permission.PROMOTION_REMOVE, Permission.PROMOTION_VIEW, Permission.ADMIN_CREATE));
+    CUSTOMER(Sets.newHashSet(Permission.PRODUCT_VIEW)),
+    SHOPOWNER(Sets.newHashSet(Permission.PRODUCT_CREATE, Permission.PRODUCT_MODIFY, Permission.PRODUCT_REMOVE,
+            Permission.PRODUCT_VIEW));
 
     @Getter
     @Setter

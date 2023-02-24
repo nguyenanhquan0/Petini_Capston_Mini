@@ -17,4 +17,5 @@ public class PetiniUserResponseDto {
     private String phone;
     private String dob;
     private CustomerResponseDto customerProperty;
+    private ShopOwnerResponseDto shopOwnerProperty;
 }

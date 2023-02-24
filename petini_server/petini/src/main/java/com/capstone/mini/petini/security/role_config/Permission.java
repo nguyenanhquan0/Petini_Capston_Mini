@@ -6,21 +6,10 @@ import lombok.Setter;
 
 @AllArgsConstructor
 public enum Permission {
-    HOMESTAY_CREATE("homestay:create"),
-    HOMESTAY_MODIFY("homestay:modify"),
-    HOMESTAY_REMOVE("homestay:remove"),
-    HOMESTAY_BAN("homestay:ban"),
-    BOOKING_CREATE("booking:create"),
-    BOOKING_MODIFY("booking:modify"),
-    BOOKING_REMOVE("booking:remove"),
-    BOOKING_CANCEL("booking:cancel"),
-    PROMOTION_CREATE("promotion:create"),
-    PROMOTION_MODIFY("promotion:modify"),
-    PROMOTION_REMOVE("promotion:remove"),
-    PROMOTION_VIEW("promotion:view"),
-    PROMOTION_ADD("promotion:add"),
-    PROMOTION_USAGE("promotion:usage"),
-    ADMIN_CREATE("admin:create");
+    PRODUCT_CREATE("product:create"),
+    PRODUCT_MODIFY("product:modify"),
+    PRODUCT_REMOVE("product:remove"),
+    PRODUCT_VIEW("product:view");
 
     @Getter
     @Setter

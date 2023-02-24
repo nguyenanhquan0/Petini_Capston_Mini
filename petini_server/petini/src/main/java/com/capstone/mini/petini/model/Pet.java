@@ -16,7 +16,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class Pet {
+public class Pet extends BaseModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -35,6 +35,9 @@ public class Pet {
 
     @Column
     private @Setter int age;
+
+    @Column
+    private @Setter String gender;
 
     @Column
     private @Setter boolean isForAdopted;

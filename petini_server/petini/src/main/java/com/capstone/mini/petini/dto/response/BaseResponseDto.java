@@ -9,14 +9,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class ProductResponseDto extends BaseResponseDto {
-    private Long id;
+public class BaseResponseDto {
+    private String createdDate;
+    private String createdBy;
+    private String updatedDate;
+    private String updatedBy;
 
-    private String name;
-
-    private Long price;
-
-    private int quantity;
-
-    private String description;
 }

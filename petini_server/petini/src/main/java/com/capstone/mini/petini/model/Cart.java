@@ -21,7 +21,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class Cart {
+public class Cart extends BaseModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,4 +1,4 @@
-package com.capstone.mini.petini.dto.response;
+package com.capstone.mini.petini.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,14 +9,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class ProductResponseDto extends BaseResponseDto {
-    private Long id;
-
+public class ProductRequestDto {
     private String name;
-
     private Long price;
-
-    private int quantity;
-
+    private Long quantity;
     private String description;
+    private String imageUrl;
 }

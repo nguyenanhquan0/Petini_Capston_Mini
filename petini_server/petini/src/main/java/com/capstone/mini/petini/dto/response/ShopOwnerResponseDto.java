@@ -1,5 +1,7 @@
 package com.capstone.mini.petini.dto.response;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,14 +11,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class ProductResponseDto extends BaseResponseDto {
+public class ShopOwnerResponseDto {
     private Long id;
-
-    private String name;
-
-    private Long price;
-
-    private int quantity;
-
-    private String description;
+    private List<ProductResponseDto> products;
+    private List<PetiniServiceResponseDto> services;
 }

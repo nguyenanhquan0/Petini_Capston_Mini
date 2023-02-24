@@ -12,6 +12,7 @@ import javax.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @AllArgsConstructor
@@ -23,11 +24,11 @@ public class ShopOwner {
     private Long id;
 
     @OneToMany(mappedBy = "shopOwner")
-    private List<Product> products;
+    private @Setter List<Product> products;
 
     @OneToMany(mappedBy = "shopOwner")
-    private List<PetiniService> services;
+    private @Setter List<PetiniService> services;
 
     @OneToOne(mappedBy = "shopOwnerProperty")
-    private PetiniUser user;
+    private @Setter PetiniUser user;
 }

@@ -9,14 +9,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class ProductResponseDto extends BaseResponseDto {
+public class PetiniServiceResponseDto {
     private Long id;
-
     private String name;
-
     private Long price;
-
-    private int quantity;
-
-    private String description;
 }
