@@ -27,7 +27,7 @@
 
               </ul>
             </div>
-            <div>
+            <div *ngIf="isLogin != true" (onchange)="checkLogin()" >
               <ul class="navbar-nav me-auto  mb-lg-0">
                 <li class="nav-item mx-4 li-login d-flex align-items-center">
                   <button mat-button class="nav-link active fs-5" routerLink="/Login">Đăng nhập</button>
@@ -39,9 +39,20 @@
                 </li>
               </ul>
             </div>
+            <div *ngIf="isLogin == true" (onchange)="checkLogin()">
+              <ul class="navbar-nav me-auto  mb-lg-0">
+                <li class="nav-item mx-4 li-login d-flex align-items-center">
+
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                  <button mat-raised-button (click)="logout()"
+                    class="btn-register btn btn-primary btn-block w-100 fa-lg gradient-custom-2 ">Đăng xuất </button>
+                </li>
+              </ul>
+            </div>
           </div>
         </nav>
-        <router-outlet></router-outlet>
+        <router-outlet (activate)="onActivate($event)"></router-outlet>
         <!-- footer -->
         <!-- Footer -->
         <footer class="text-center text-lg-start bg-3 bg-light  text-white">

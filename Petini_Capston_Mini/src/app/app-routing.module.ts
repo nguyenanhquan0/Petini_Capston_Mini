@@ -8,6 +8,9 @@ import { PetComponent } from './pet/pet.component';
 import { ServiceComponent } from './service/service.component';
 import { GuestComponent } from './guest/guest.component';
 import { GuestModule } from './guest/guest.module';
+import { ShopOwnerComponent } from './shop-owner/shop-owner.component';
+import { ShopOwnerModule } from './shop-owner/shop-owner.module';
+import { ShopOwnerRoutingModule } from './shop-owner/shop-owner-routing.module';
 
 const routes: Routes = [
 
@@ -24,6 +27,20 @@ const routes: Routes = [
       path: '',
       loadChildren: () => import('./guest/guest.module').then(m => m.GuestModule)
     }]
+  },
+  {
+    path:'ShopOwner',
+    component: ShopOwnerComponent
+  },
+  {
+    path : 'ShopOwner',
+    loadChildren: () =>
+    import('./shop-owner/shop-owner.module').then((m) => m.ShopOwnerModule)
+  },
+  {
+    path : 'ShopOwner',
+    loadChildren: () =>
+    import('./shop-owner/shop-owner-routing.module').then((m) => m.ShopOwnerRoutingModule)
   }
 ];
 

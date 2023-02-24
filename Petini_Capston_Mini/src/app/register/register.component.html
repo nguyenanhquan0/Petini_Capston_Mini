@@ -10,7 +10,7 @@
             <div class="login-text">
               <h2>Register | Petini</h2>
             </div>
-            <form>
+            <form (ngSubmit)="register()">
               <div class="row">
                 <div class="col-12 col-md-6">
                   <div class="login-input">
@@ -97,7 +97,7 @@
                     <mat-form-field class="input-username w-100" appearance="outline">
                       <mat-label>Day of Birth</mat-label>
                       <input matInput [formControl]="dobFormControl" [errorStateMatcher]="matcher" name="txtDob"
-                        id="date" [matDatepicker]="picker">
+                        id="date" [matDatepicker]="picker" [min]="minDate" [max]="maxDate">
                       <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                       <mat-datepicker #picker></mat-datepicker>
                       <mat-icon matPrefix><i class="fa-solid fa-calendar-days"></i></mat-icon>

@@ -37,11 +37,11 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShopComponent } from './shop/shop.component';
 import { PetComponent } from './pet/pet.component';
-import { ServiceComponent } from './service/service.component';
 import { GuestComponent } from './guest/guest.component';
 import { ItemsComponent } from './items/items.component';
 import { PetDetailComponent } from './pet-detail/pet-detail.component';
 import { TestComponent } from './test/test.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -51,8 +51,7 @@ import { TestComponent } from './test/test.component';
     HomeComponent,
     ShopComponent,
     PetComponent,
-    ServiceComponent,
-    GuestComponent,
+     GuestComponent,
     ItemsComponent,
     PetDetailComponent,
     TestComponent,
@@ -88,7 +87,7 @@ import { TestComponent } from './test/test.component';
     MatCheckboxModule,
     MatSelectModule,
     MatDatepickerModule,
-
+    HttpClientModule,
 
   ],
   providers: [],
