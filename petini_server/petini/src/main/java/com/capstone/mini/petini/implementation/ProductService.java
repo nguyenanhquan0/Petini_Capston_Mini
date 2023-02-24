@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.capstone.mini.petini.handlers.exceptions.ProductNotFoundException;
 import com.capstone.mini.petini.model.PetiniUser;
 import com.capstone.mini.petini.model.Product;
 import com.capstone.mini.petini.repositories.ProductRepo;
@@ -43,6 +44,13 @@ public class ProductService implements IProductService {
         List<Product> products = productRepo.findAll();
 
         return products;
+    }
+
+    @Override
+    public Product findProductByName(String name) {
+        Product product = productRepo.findProductByName(name).orElseThrow(() -> new ProductNotFoundException(name));
+
+        return product;
     }
 
 }

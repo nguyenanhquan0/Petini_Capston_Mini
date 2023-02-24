@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.capstone.mini.petini.dto.request.ProductListDto;
@@ -47,6 +48,14 @@ public class ProductController {
                 .map(p -> modelMapper.map(p, ProductResponseDto.class)).collect(Collectors.toList());
 
         return new ResponseEntity<List<ProductResponseDto>>(responseProducts, HttpStatus.OK);
+    }
+
+    @GetMapping("/detail")
+    public ResponseEntity<?> getProductDetail(@RequestParam String name) {
+        Product product = productService.findProductByName(name);
+        ProductResponseDto responseProduct = modelMapper.map(product, ProductResponseDto.class);
+
+        return new ResponseEntity<ProductResponseDto>(responseProduct, HttpStatus.OK);
     }
 
 }
