@@ -19,4 +19,6 @@ public class ProductResponseDto extends BaseResponseDto {
     private int quantity;
 
     private String description;
+
+    private String imageUrl;
 }
