@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "petini-fc9e7"
+  },
+  "targets": {
+    "petini-fc9e7": {
+      "hosting": {
+        "Petini_Capston_Mini": [
+          "petini-fc9e7"
+        ]
+      }
+    }
+  }
+}

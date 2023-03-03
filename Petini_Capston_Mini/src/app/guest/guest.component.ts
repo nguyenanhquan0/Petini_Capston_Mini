@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from '../services/login.service';
 import { Observable } from 'rxjs/internal/Observable';
+
 @Component({
   selector: 'app-guest',
   templateUrl: './guest.component.html',
@@ -19,31 +20,34 @@ export class GuestComponent implements OnInit{
      //or document.querySelector('body').scrollTo(0,0)
 
  }
+
+
  isLogin= false;
- public isLoggedIn$: Observable<boolean> = new Observable<boolean>();
+ logined="";
+ updateData(item:any){
+  console.warn(item);
+  this.logined=item;
+  console.log(item);
+ }
+
 
  ngOnInit(): void {
   console.log(this.isLogin);
      if(localStorage.getItem('userToken')){
-      this.isLogin=true;
+
       console.log(this.isLogin);
       console.log(localStorage.getItem('userToken'));
      }else{
       this.isLogin=false;
      }
-     this.isLoggedIn$ = this.loginService.isLoggedIn();
-     console.log(this.isLoggedIn$);
+
+
  }
 
- checkLogin(){
-  if(localStorage.getItem('userToken')){
-    this.isLogin=true;
-    console.log(this.isLogin);
-   }
-   else{
-    this.isLogin=false;
-   }
- }
+
+
+
+
  constructor(
   private router: Router,private route: ActivatedRoute,
   public loginService : LoginService
@@ -54,7 +58,7 @@ export class GuestComponent implements OnInit{
  logout(){
   localStorage.clear();
   this.isLogin=false;
-    this.router.navigate(['..'], {relativeTo: this.route});
+    this.router.navigate(['Login'], {relativeTo: this.route});
  }
 
 

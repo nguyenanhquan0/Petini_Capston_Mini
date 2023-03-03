@@ -1,5 +1,63 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<div class="quantity">
-  <input type="number" min="1" max="9" step="1" value="1">
+<div class="card">
+  <mat-tab-group>
+    <mat-tab label="First">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="login-input">
+              <!-- Username -->
+              <div class="username">
+                <mat-form-field appearance="outline">
+                  <mat-label>Telephone</mat-label>
+                  <span matPrefix>+1 &nbsp;</span>
+                  <input type="tel" matInput placeholder="555-555-1234">
+                  <mat-icon matSuffix>mode_edit</mat-icon>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Second">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="login-input">
+              <!-- Username -->
+              <div class="username">
+                <mat-form-field appearance="outline">
+                  <mat-label>Telephone</mat-label>
+                  <span matPrefix>+1 &nbsp;</span>
+                  <input type="tel" matInput placeholder="555-555-1234">
+                  <mat-icon matSuffix>mode_edit</mat-icon>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Third">
+      <ng-template matTabContent>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="login-input">
+              <!-- Username -->
+              <div class="username">
+                <mat-form-field appearance="outline">
+                  <mat-label>Telephone</mat-label>
+                  <span matPrefix>+1 &nbsp;</span>
+                  <input type="tel" matInput placeholder="555-555-1234">
+                  <mat-icon matSuffix>mode_edit</mat-icon>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    </mat-tab>
+  </mat-tab-group>
 </div>

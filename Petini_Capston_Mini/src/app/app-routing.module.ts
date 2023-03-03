@@ -11,6 +11,7 @@ import { GuestModule } from './guest/guest.module';
 import { ShopOwnerComponent } from './shop-owner/shop-owner.component';
 import { ShopOwnerModule } from './shop-owner/shop-owner.module';
 import { ShopOwnerRoutingModule } from './shop-owner/shop-owner-routing.module';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
 
@@ -41,6 +42,10 @@ const routes: Routes = [
     path : 'ShopOwner',
     loadChildren: () =>
     import('./shop-owner/shop-owner-routing.module').then((m) => m.ShopOwnerRoutingModule)
+  },
+  {
+    path: 'Test',
+    component: TestComponent
   }
 ];
 

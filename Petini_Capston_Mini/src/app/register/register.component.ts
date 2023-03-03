@@ -53,10 +53,10 @@ export class RegisterComponent {
     this.maxDate = new Date(currentDate);
   }
 
-  // Register
-  protected register() {
+  // Register Owner
+  protected registerOwner() {
     this.http
-      .register(
+      .registerOwner(
         this.addressFormControl.value + '',
         this.dobFormControl.value + '',
         this.emailFormControl.value + '',
@@ -67,7 +67,24 @@ export class RegisterComponent {
       .subscribe((data) => {
         console.log('Succes', data);
         localStorage.setItem('registerSuccess', 'true');
-        this.router.navigate(['/Login'], { relativeTo: this.route });
+              this.router.navigate(['/Login'], { relativeTo: this.route });
+      });
+  }
+  // Register Customer
+  protected register() {
+    this.http
+      .registerCustomer(
+        this.addressFormControl.value + '',
+        this.dobFormControl.value + '',
+        this.emailFormControl.value + '',
+        this.passwordFormControl.value + '',
+        this.phoneFormControl.value + '',
+        this.usernameFormControl.value + ''
+      )
+      .subscribe((data) => {
+        console.log('Succes', data);
+        localStorage.setItem('registerSuccess', 'true');
+                this.router.navigate(['/Login'], { relativeTo: this.route });
       });
   }
 }

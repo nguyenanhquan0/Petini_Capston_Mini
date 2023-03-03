@@ -23,7 +23,7 @@ export class RegisterService {
       error.error["message"]);
   };
 
-  public register(
+  public registerCustomer(
     address: string,
     dob: string,
     email: string,
@@ -40,6 +40,33 @@ export class RegisterService {
       username
     };
     const url = `${this.REST_API_SERVER}/api/user/customer-register`;
+    console.log(url);
+    return this.httpClient
+      .post<any>(url, value, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
+
+  public registerOwner(
+    address: string,
+    dob: string,
+    email: string,
+    password: string,
+    phone: string,
+    username: string
+  ) {
+
+
+
+    var value = {
+      address,
+      dob,
+      email,
+      password,
+      phone,
+      username
+    };
+    const url = `${this.REST_API_SERVER}/api/user/owner-register`;
     console.log(url);
     return this.httpClient
       .post<any>(url, value, this.httpOptions)

@@ -9,19 +9,17 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
 import { BehaviorSubject, Observable } from 'rxjs';
-
+import { Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-
   hide = true;
   passwordFormControl = new FormControl('', [Validators.required]);
   usernameFormControl = new FormControl('', [Validators.required]);
   matcher = new MyErrorStateMatcher();
-
 
   constructor(
     private http: LoginService,
@@ -34,29 +32,31 @@ export class LoginComponent {
   );
 
   protected login() {
-
-
-    this.http.login(
-      this.usernameFormControl.value + '',
-      this.passwordFormControl.value + ''
-      ).subscribe((data) => {
-      localStorage.setItem('userToken', data['token']);
-      localStorage.setItem('username', data['username']);
-      console.log(data);
-      this.loggedIn.next(true);
-
-      this.router.navigate([''], { relativeTo: this.route, });
-    },
-    (error) => {
-      if (error['status'] == 500) {
-        console.log('please check your information again!') ;
-      } else {
-
-        console.log(error);
-      }
-    }
-    );
+    this.http
+      .login(
+        this.usernameFormControl.value + '',
+        this.passwordFormControl.value + ''
+      )
+      .subscribe((data) => {
+        localStorage.setItem('userToken', data['token']);
+        localStorage.setItem('username', data['username']);
+this.updateData = "true"
+        this.updateDataEvent.emit(this.updateData);
+        console.log(this.updateDataEvent);
+        console.log(data);
+        console.log(data['role']);
+        if (data['role'] === 'CUSTOMER') {
+          this.router.navigate([''], { relativeTo: this.route });
+        }
+        else if (data['role'] === 'SHOPOWNER') {
+          this.router.navigate(['/ShopOwner'], { relativeTo: this.route });
+        }
+      });
   }
+
+  @Output() updateDataEvent  = new EventEmitter<string>();
+  updateData = "";
+
 }
 
 /** Error when invalid control is dirty, touched, or submitted. */
