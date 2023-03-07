@@ -26,7 +26,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
+import { MAT_DATE_FORMATS, MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
@@ -88,6 +88,22 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { PortalModule } from '@angular/cdk/portal';
 import { A11yModule } from '@angular/cdk/a11y';
+import { MessageComponent } from './pop-up/message/message.component';
+import { SuccessComponent } from './pop-up/success/success.component';
+import { DatePipe } from '@angular/common';
+
+export const MY_DATE_FORMATS = {
+  parse: {
+    dateInput: 'YYYY-MM-DD',
+  },
+  display: {
+    dateInput: 'YYYY-MM-DD',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY'
+  },
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -96,10 +112,12 @@ import { A11yModule } from '@angular/cdk/a11y';
     HomeComponent,
     ShopComponent,
     PetComponent,
-     GuestComponent,
+    GuestComponent,
     ItemsComponent,
     PetDetailComponent,
     TestComponent,
+    MessageComponent,
+    SuccessComponent,
   ],
   imports: [
     BrowserModule,
@@ -209,7 +227,11 @@ import { A11yModule } from '@angular/cdk/a11y';
     PortalModule,
     ScrollingModule,
   ],
-  providers: [],
+  providers: [
+
+    DatePipe,
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

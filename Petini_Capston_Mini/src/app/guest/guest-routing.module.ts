@@ -11,8 +11,7 @@ import { PetDetailComponent } from '../pet-detail/pet-detail.component';
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
-  { path: 'Login', component: LoginComponent },
-  { path: 'Register', component: RegisterComponent },
+  { path: '', component: HomeComponent },
   { path: 'Shop', component: ShopComponent },
   {
     path: 'Shop',

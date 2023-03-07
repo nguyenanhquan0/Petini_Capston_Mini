@@ -12,10 +12,9 @@ import { ShopOwnerComponent } from './shop-owner/shop-owner.component';
 import { ShopOwnerModule } from './shop-owner/shop-owner.module';
 import { ShopOwnerRoutingModule } from './shop-owner/shop-owner-routing.module';
 import { TestComponent } from './test/test.component';
+import { GuestRoutingModule } from './guest/guest-routing.module';
 
 const routes: Routes = [
-
-
   {
     path: '',
     redirectTo: 'Home',
@@ -24,33 +23,46 @@ const routes: Routes = [
   {
     path: '',
     component: GuestComponent,
-    children: [{
-      path: '',
-      loadChildren: () => import('./guest/guest.module').then(m => m.GuestModule)
-    }]
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./guest/guest.module').then((m) => m.GuestModule),
+      },
+    ],
   },
   {
-    path:'ShopOwner',
-    component: ShopOwnerComponent
-  },
-  {
-    path : 'ShopOwner',
+    path: '',
     loadChildren: () =>
-    import('./shop-owner/shop-owner.module').then((m) => m.ShopOwnerModule)
+      import('./guest/guest-routing.module').then((m) => m.GuestRoutingModule),
   },
   {
-    path : 'ShopOwner',
+    path: 'ShopOwner',
+    component: ShopOwnerComponent,
+  },
+  {
+    path: 'ShopOwner',
     loadChildren: () =>
-    import('./shop-owner/shop-owner-routing.module').then((m) => m.ShopOwnerRoutingModule)
+      import('./shop-owner/shop-owner.module').then((m) => m.ShopOwnerModule),
+  },
+  {
+    path: 'ShopOwner',
+    loadChildren: () =>
+      import('./shop-owner/shop-owner-routing.module').then(
+        (m) => m.ShopOwnerRoutingModule
+      ),
   },
   {
     path: 'Test',
-    component: TestComponent
-  }
+    component: TestComponent,
+  },
+  { path: 'Login', component: LoginComponent },
+
+  { path: 'Register', component: RegisterComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

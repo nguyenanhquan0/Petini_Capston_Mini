@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AddItemsService } from '../../services/add-items.service';
+import { AddItemsService } from '../../../services/add-items.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { ImageService } from '../../services/image.service';
+import { ImageService } from '../../../services/image.service';
 
 @Component({
   selector: 'app-add-items',

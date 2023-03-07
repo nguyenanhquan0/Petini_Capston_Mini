@@ -34,7 +34,7 @@ export class GuestComponent implements OnInit{
  ngOnInit(): void {
   console.log(this.isLogin);
      if(localStorage.getItem('userToken')){
-
+      this.isLogin = true;
       console.log(this.isLogin);
       console.log(localStorage.getItem('userToken'));
      }else{
@@ -52,6 +52,13 @@ export class GuestComponent implements OnInit{
   private router: Router,private route: ActivatedRoute,
   public loginService : LoginService
  ){
+  if(localStorage.getItem('userToken')){
+    this.isLogin = true;
+    console.log(this.isLogin);
+    console.log(localStorage.getItem('userToken'));
+   }else{
+    this.isLogin=false;
+   }
 
  }
 

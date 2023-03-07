@@ -39,6 +39,7 @@ export class RegisterService {
       phone,
       username
     };
+    console.log("value:" , value);
     const url = `${this.REST_API_SERVER}/api/user/customer-register`;
     console.log(url);
     return this.httpClient

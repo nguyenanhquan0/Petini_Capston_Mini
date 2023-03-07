@@ -11,17 +11,26 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
 import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 import { MatIconModule } from '@angular/material/icon';
-import { AddItemsComponent } from './add-items/add-items.component';
+import { AddItemsComponent } from './manage-item/add-items/add-items.component';
 import { matFormFieldAnimations, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { ManageAccountComponent } from './manage-account/manage-account.component';
+import { ManageItemComponent } from './manage-item/manage-item.component';
+import { ManagePetComponent } from './manage-pet/manage-pet.component';
+import { ManageServiceComponent } from './manage-service/manage-service.component';
+
 
 
 @NgModule({
   declarations: [
     ShopOwnerComponent,
-    AddItemsComponent
+    AddItemsComponent,
+    ManageAccountComponent,
+    ManageItemComponent,
+    ManagePetComponent,
+    ManageServiceComponent,
   ],
   imports: [
     CommonModule,
