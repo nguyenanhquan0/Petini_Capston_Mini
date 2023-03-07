@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { MatMenuModule } from '@angular/material/menu';
 import { ShopOwnerRoutingModule } from './shop-owner-routing.module';
 import { ShopOwnerComponent } from './shop-owner.component';
 
@@ -45,7 +45,8 @@ import { ManageServiceComponent } from './manage-service/manage-service.componen
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
-    NgxDropzoneModule
+    NgxDropzoneModule,
+    MatMenuModule
   ]
 })
 export class ShopOwnerModule { }
