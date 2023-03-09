@@ -28,6 +28,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ItemDetailComponent } from './manage-item/item-detail/item-detail.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 
@@ -67,7 +68,8 @@ import { ItemDetailComponent } from './manage-item/item-detail/item-detail.compo
     MatSelectModule,
     MatTabsModule,
     MatSlideToggleModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatDatepickerModule
   ]
 })
 export class ShopOwnerModule { }

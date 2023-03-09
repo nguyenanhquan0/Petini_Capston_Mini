@@ -1,20 +1,105 @@
+<div class="wrapper">
+
+  <div class="body">
+    <div class="body-container">
+      <div class="row-avatar-infor">
+
+        <div class="avatar card">
+          <img class="card-img-top" src="/assets/images/img-4.png">
+          <div class="card-body">
+            <h5 class="text-center card-title">Qaung</h5>
+            <span class="cart-text">quang@gmail.com</span>
+            <div class="badge rounded-pill d-inline w-100 mt-4 fs-6 badge-success"  ><span class="">Hoat dong</span></div>
+          </div>
+        </div>
 
 
 
-<div class="header">
-  <div><mat-icon class="mat-18">check_circle</mat-icon></div>
-  <div class="warnning">
-    SUCCESS
-  </div>
-</div>
-<div class="container">
-  <div class="content">
-    <div class="text mb-3">
-      <p class="fs-5">Login Successs</p>
+        <!-- Edit Information -->
+        <div class="infor ">
+          <div class="card-col card">
+
+            <div class="card-header">
+              <h1>Profile</h1>
+            </div>
+            <div class="posttitle">
+
+            </div>
+            <div class="card-row">
+              <div class="col-left">
+                <!-- Username -->
+                <div class="fill">
+                  <div class="fill-text">
+                    <p>Username:</p>
+                  </div>
+
+                  <mat-form-field class="not-allow" appearance="fill">
+                    <input disabled matInput value="qaung">
+                  </mat-form-field>
+                </div>
+                <!-- <p>{{username}}</p> -->
+
+                <!-- Dob  -->
+                <div class="fill">
+                  <div class="fill-text">
+                    <p>Day of Birth:</p>
+                  </div>
+
+                  <mat-form-field>
+                    <input class="date" type="date" name="date" onfocus="(this.type='date')" matInput value="8-3-2023" >
+                  </mat-form-field>
+                </div>
+
+              </div>
+
+              <div class="col-right">
+                <!-- Email -->
+                <div class="fill">
+                  <div class="fill-text">
+                    <p>Email:</p>
+                  </div>
+                  <mat-form-field class="not-allow" appearance="fill">
+                    <input disabled matInput value="asdasd@asdasd.asdasd">
+                  </mat-form-field>
+                </div>
+
+
+                <!-- Phone -->
+                <div class="fill">
+                  <div class="fill-text">
+                    <p>Phone:</p>
+                  </div>
+
+                  <mat-form-field>
+                    <input name="phone" matInput  pattern="^[0]\d{9,12}$" type="tel" value="0999999999">
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <!-- Address -->
+            <div class="address">
+              <div class="fill">
+                <div class="fill-text">
+                  <p>Address:</p>
+                </div>
+
+                <mat-form-field class="not-allow">
+                  <input matInput value="abc sasasasasasasas a sa sa s as a">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="button">
+              <button class="btn-accept w-25" mat-raised-button>Back</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
 
     </div>
-    <div class="button">
-      <button class="cancel"  mat-dialog-close cdkFocusRegionStart color="basic" mat-raised-button> DONE</button>
-    </div>
   </div>
+
+
+
 </div>

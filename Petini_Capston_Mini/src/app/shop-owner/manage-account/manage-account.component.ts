@@ -58,4 +58,6 @@ export interface data {
   username: string;
   email: string;
   status: string;
+  avatarUrl:string;
+  phone:string;
 }
