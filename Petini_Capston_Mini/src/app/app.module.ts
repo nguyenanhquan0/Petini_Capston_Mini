@@ -32,16 +32,12 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
-
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatStepperModule } from '@angular/material/stepper';
 import { CdkStepperModule } from '@angular/cdk/stepper';
-
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
-
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {OverlayModule} from '@angular/cdk/overlay';
@@ -91,6 +87,7 @@ import { A11yModule } from '@angular/cdk/a11y';
 import { MessageComponent } from './pop-up/message/message.component';
 import { SuccessComponent } from './pop-up/success/success.component';
 import { DatePipe } from '@angular/common';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 export const MY_DATE_FORMATS = {
   parse: {
@@ -164,9 +161,7 @@ export const MY_DATE_FORMATS = {
     MatButtonToggleModule,
     MatMenuModule,
     MatDialogModule,
-
     MatTabsModule,
-
     MatStepperModule,
     CdkStepperModule,
     MatSlideToggleModule,
@@ -226,6 +221,8 @@ export const MY_DATE_FORMATS = {
     OverlayModule,
     PortalModule,
     ScrollingModule,
+    NgxDropzoneModule,
+    NgxPaginationModule
   ],
   providers: [
 

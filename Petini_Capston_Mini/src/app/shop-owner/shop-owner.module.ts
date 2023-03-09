@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatMenuModule } from '@angular/material/menu';
 import { ShopOwnerRoutingModule } from './shop-owner-routing.module';
 import { ShopOwnerComponent } from './shop-owner.component';
-
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
@@ -20,6 +20,13 @@ import { ManageAccountComponent } from './manage-account/manage-account.componen
 import { ManageItemComponent } from './manage-item/manage-item.component';
 import { ManagePetComponent } from './manage-pet/manage-pet.component';
 import { ManageServiceComponent } from './manage-service/manage-service.component';
+import { AccountDetailComponent } from './manage-account/account-detail/account-detail.component';
+import { AddAccountComponent } from './manage-account/add-account/add-account.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -31,6 +38,8 @@ import { ManageServiceComponent } from './manage-service/manage-service.componen
     ManageItemComponent,
     ManagePetComponent,
     ManageServiceComponent,
+    AccountDetailComponent,
+    AddAccountComponent,
   ],
   imports: [
     CommonModule,
@@ -46,7 +55,17 @@ import { ManageServiceComponent } from './manage-service/manage-service.componen
     MatFormFieldModule,
     FormsModule,
     NgxDropzoneModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTableModule,
+    MatTableModule,
+    MatDialogModule,
+    MatSidenavModule,
+    MatListModule,
+    MatGridListModule,
+    MatSelectModule,
+    MatTabsModule,
+    MatSlideToggleModule,
+    NgxPaginationModule
   ]
 })
 export class ShopOwnerModule { }
