@@ -14,7 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { AddItemsComponent } from './manage-item/add-items/add-items.component';
 import { matFormFieldAnimations, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { ManageAccountComponent } from './manage-account/manage-account.component';
 import { ManageItemComponent } from './manage-item/manage-item.component';
@@ -69,7 +69,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatTabsModule,
     MatSlideToggleModule,
     NgxPaginationModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ShopOwnerModule { }

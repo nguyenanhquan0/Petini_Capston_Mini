@@ -1,0 +1,139 @@
+.page {
+  background-color: rgb(249, 250, 252);
+}
+
+
+.login-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.login-card {
+  background-color: white;
+  box-shadow: rgb(100 116 139 / 12%) 0px 10px 15px;
+}
+
+.password,
+.username {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+}
+
+
+
+.login-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px;
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+.login-button-div {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+
+  button {
+    height: 45px;
+  }
+
+  .login-button {
+    font-size: large;
+  }
+
+}
+
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: rgb(238, 42, 123) 0%;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgb(238, 42, 123) 0%, rgb(255, 125, 184) 100%);
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgb(238, 42, 123) 0%, rgb(255, 125, 184) 100%);
+}
+
+@media (min-width: 769px) {
+  .gradient-custom-2 {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+  }
+}
+
+.gmail-button {
+  color: white !important;
+}
+.login-icon{
+  img{
+    width: 100px;
+    max-width: 100px;
+    min-width: 100px;
+  }
+}
+
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: rgb(238, 42, 123) 0%;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgb(238, 42, 123) 0%, rgb(255, 125, 184) 100%);
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgb(238, 42, 123) 0%, rgb(255, 125, 184) 100%);
+}
+
+.gradient-text-1 {
+  background: rgb(238, 42, 123) 0%;
+  background: linear-gradient(to right, rgb(238, 42, 123) 0%, rgb(255, 125, 184) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-register {
+  color: white !important;
+  font-weight: 500;
+}
+
+.li-login {
+  border-radius: 5px;
+  width: fit-content;
+
+  button {
+    color: rgb(1, 148, 243);
+    font-family: MuseoSans, Roboto, sans-serif !important;
+    font-size: 20px;
+    letter-spacing: 0.7px;
+    font-weight: 500;
+  }
+}
+
+.logo {
+  width: 80px;
+}
+
+.logo-text {
+  letter-spacing: 7px;
+  font-weight: 500;
+}
+
+.bg-3{
+  background-image: url(/assets/images/bg-3.jpg);
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
