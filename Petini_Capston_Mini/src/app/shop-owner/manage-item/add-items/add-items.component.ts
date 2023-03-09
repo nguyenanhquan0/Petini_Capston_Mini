@@ -4,6 +4,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { ImageService } from '../../../services/image.service';
+import { MessageComponent } from '../../../pop-up/message/message.component';
+import { SuccessComponent } from '../../../pop-up/success/success.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-items',
@@ -28,7 +31,8 @@ export class AddItemsComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private storage: AngularFireStorage,
-    private image: ImageService
+    private image: ImageService,
+    public dialog: MatDialog
   ) {}
   // name!: any;
   // price!: any;
@@ -108,47 +112,80 @@ export class AddItemsComponent implements OnInit {
   removeItems(i: any) {
     this.items.splice(i, 1);
   }
-
+  message: any;
+  isValidImage = false;
   addItems(form: NgForm) {
-    type itemsList = Array<{
-      name: string;
-      price: string;
-      quantity: string;
-      description: string;
-      imageUrl: string;
-    }>;
-    const myItemsList: itemsList = [];
-
-    for (let item of this.items) {
-      myItemsList.push({
-        name: item.name,
-        price: item.price,
-        quantity: item.quantity,
-        description: item.description,
-        imageUrl: item.imageUrl,
-      });
-    }
-
-    console.log(myItemsList);
-
-    this.http.addItems(myItemsList).subscribe((data) => {
-      for (let value of this.items) {
-        this.file = value.file;
-        const path = 'items/' + this.file.name;
-        const fileRef = this.storage.ref(path);
-        this.storage.upload(path, this.file);
+    if (this.valid() == true) {
+      type itemsList = Array<{
+        name: string;
+        price: string;
+        quantity: string;
+        description: string;
+        imageUrl: string;
+      }>;
+      const myItemsList: itemsList = [];
+      for (let item of this.items) {
+        if (item.file) {
+          myItemsList.push({
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity,
+            description: item.description,
+            imageUrl: item.name + ' ' + item.imageUrl,
+          });
+        }
       }
-      console.log(data);
-      console.log('success');
-      this.items = [{name: '',
-      price: '',
-      quantity: '',
-      description: '',
-      imageUrl: '',
-      files: [],
-      file: this.file,
-      showDiv: false,}];
-      form.resetForm();
+      console.log(myItemsList);
+
+      this.http.addItems(myItemsList).subscribe((data) => {
+        for (let value of this.items) {
+          this.file = value.file;
+          const path = 'items/' + value.name + ' ' + this.file.name;
+          const fileRef = this.storage.ref(path);
+          this.storage.upload(path, this.file);
+        }
+        console.log(data);
+        console.log('success');
+        this.items = [
+          {
+            name: '',
+            price: '',
+            quantity: '',
+            description: '',
+            imageUrl: '',
+            files: [],
+            file: this.file,
+            showDiv: false,
+          },
+        ];
+        form.resetForm();
+        this.message = 'Tạo sản phẩm thành công';
+        this.openDialogSuccess();
+      });
+
+    }
+    else this.openDialogMessage();
+  }
+
+  public valid() {
+    for (let item of this.items) {
+      if (!item.file) {
+        console.log('kh co anh');
+        this.message = 'Xin nhập ảnh sản phẩm vào';
+        return;
+      }
+    }
+    return true;
+  }
+
+  openDialogMessage() {
+    this.dialog.open(MessageComponent, {
+      data: this.message,
+    });
+  }
+  openDialogSuccess() {
+    this.dialog.open(SuccessComponent, {
+      data: this.message,
     });
   }
 }

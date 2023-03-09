@@ -2,19 +2,42 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MessageComponent } from '../../pop-up/message/message.component';
 import { SuccessComponent } from '../../pop-up/success/success.component';
+import { ImageService } from '../../services/image.service';
+import { ShopService } from '../../services/shop.service';
 
 @Component({
   selector: 'app-manage-item',
   templateUrl: './manage-item.component.html',
-  styleUrls: ['./manage-item.component.scss']
+  styleUrls: ['./manage-item.component.scss'],
 })
-export class ManageItemComponent implements OnInit{
-  valuesCustomer: data[] = [];
-  valuesOwner: data[] = [];
+export class ManageItemComponent implements OnInit {
+  values: data[] = [];
+  i: any;
   message!: string;
+  status = 'sellin';
 
-  constructor(public dialog: MatDialog) {}
-  ngOnInit(): void {}
+  constructor(
+    public dialog: MatDialog,
+    private image: ImageService,
+    private http: ShopService
+  ) {}
+  ngOnInit(): void {
+    this.http.getItems().subscribe(async (data) => {
+      console.log(data);
+      for (this.i of data) {
+        var imgUrl = await this.image.getImage('items/' + this.i.imageUrl);
+        this.values.push({
+          id: this.i.id,
+          name: this.i.name,
+          description: this.i.description,
+          status: this.status,
+          imageUrl: imgUrl,
+          quantity: this.i.quantity,
+          price: this.i.price,
+        });
+      }
+    });
+  }
 
   title = 'pagination';
   page: number = 1;
@@ -24,13 +47,7 @@ export class ManageItemComponent implements OnInit{
   // Customer
   onTableDataChangeCustomer(event: any) {
     this.page = event;
-    this.valuesCustomer;
-  }
-
-  // Owner
-  onTableDataChangeOwner(event: any) {
-    this.page = event;
-    this.valuesOwner;
+    this.values;
   }
 
   public onItemSelector(id: number, username: string) {
@@ -48,14 +65,15 @@ export class ManageItemComponent implements OnInit{
       data: this.message,
     });
   }
-  openDialogAction(){}
-  accept(){}
-  reject(){}
+
 }
 
 export interface data {
   id: number;
-  username: string;
-  email: string;
+  name: string;
+  description: string;
   status: string;
+  imageUrl: string;
+  quantity: string;
+  price: string;
 }

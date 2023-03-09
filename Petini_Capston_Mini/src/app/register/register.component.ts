@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
     var date = new Date(event),
       mnth = ('0' + (date.getMonth() + 1)).slice(-2),
       day = ('0' + date.getDate()).slice(-2);
-      this.dob = [date.getFullYear(), mnth, day].join('-')
+    this.dob = [date.getFullYear(), mnth, day].join('-');
     this.dobFormControl.setValue(this.dob);
     console.log('convert', this.dobFormControl.value);
   }
@@ -50,11 +50,11 @@ export class RegisterComponent implements OnInit {
   getEmailErrorMessage() {
     this.validMail = this.filter.test(this.emailFormControl.value + '');
     if (this.emailFormControl.hasError('required')) {
-      return 'You must enter a <strong> value </strong>';
+      return 'Xin nhập <strong> email </strong>';
     }
 
     if (this.validMail === false) {
-      return 'Not a valid <strong>email</strong>';
+      return 'Email không hợp lệ';
       console.log(this.passwordFormControl.value);
       console.log(this.confirmPasswordFormControl.value);
     } else {
@@ -64,15 +64,12 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-
-
-
   constructor(
     private http: RegisterService,
     private router: Router,
     private route: ActivatedRoute,
     public dialog: MatDialog,
-    public datepipe: DatePipe,
+    public datepipe: DatePipe
   ) {
     const currentYear = new Date().getFullYear();
     const currentDate = new Date();
@@ -146,7 +143,6 @@ export class RegisterComponent implements OnInit {
     }
     this.convert(this.dobFormControl.value);
     if (this.valid() == true) {
-
       this.http
         .registerCustomer(
           this.addressFormControl.value + '',
@@ -156,56 +152,63 @@ export class RegisterComponent implements OnInit {
           this.phoneFormControl.value + '',
           this.usernameFormControl.value + ''
         )
-        .subscribe((data) => {
-          console.log('Success', data);
-          localStorage.setItem('message', 'Register Success');
-          localStorage.setItem('registerSuccess', 'true');
-          this.message = 'Register Success';
-          this.openDialogSuccess();
-          this.router.navigate(['/Login'], { relativeTo: this.route });
-        },error =>{
-          // this.Result = "Check your information!!!!"
-          if(error['status'] == 500){
-            this.message = "Username has exist"
-          }else{
-          console.log(error.message);
-          this.message = error.message;
-          this.openDialogMessage();}
-        });
-    }else{
+        .subscribe(
+          (data) => {
+            console.log('Success', data);
+            localStorage.setItem('message', 'Register Success');
+            localStorage.setItem('registerSuccess', 'true');
+            this.message = 'Đăng ký thành công';
+            this.openDialogSuccess();
+            this.router.navigate(['/Login'], { relativeTo: this.route });
+          },
+          (error) => {
+            // this.Result = "Check your information!!!!"
+            if (error['status'] == 500) {
+              this.message = 'Tên đăng nhập đã tồn tại';
+            } else {
+              console.log(error);
+              this.message = error.message;
+              this.openDialogMessage();
+            }
+          }
+        );
+    } else {
       this.openDialogMessage();
     }
   }
-  isConfirmPass:any;
+  isConfirmPass: any;
   public valid() {
     this.isConfirmPass = '';
-    this.validMail = this.filter.test(this.emailFormControl.value+"");
+    this.validMail = this.filter.test(this.emailFormControl.value + '');
     if (this.usernameFormControl.value == '') {
-
+      this.message = 'Xin nhập tên đăng nhập';
       return;
     } else if (this.addressFormControl.value == '') {
-
+      this.message = 'Xin nhập địa chỉ';
       return;
     } else if (this.dobFormControl.value == '') {
-
+      this.message = 'Xin nhập ngày sinh';
       return;
-    }  else if (this.phoneFormControl.value == '') {
-
+    } else if (this.phoneFormControl.value == '') {
+      this.message = 'Xin nhập số điện thoại';
       return;
-    }
-     else if (this.passwordFormControl.value != this.confirmPasswordFormControl.value) {
-      this.message = "Check confirm password"
+    } else if (
+      this.passwordFormControl.value != '' &&
+      this.confirmPasswordFormControl.value != '' &&
+      this.passwordFormControl.value != this.confirmPasswordFormControl.value
+    ) {
+      this.message = 'Xin kiểm tra lại mật khẩu';
       return;
-    }else if(this.passwordFormControl.value == ''){
-      this.message = "Please enter your password"
+    } else if (this.passwordFormControl.value == '') {
+      this.message = 'Xin nhập mật khẩu';
       return;
-    }
-    else if (this.validMail == false) {
-      this.message = "Incorrect Email"
+    } else if (this.confirmPasswordFormControl.value == '') {
+      this.message = 'Xin nhập xác nhận lại mật khẩu';
       return;
-    }
-
-     else return true;
+    } else if (this.validMail == false) {
+      this.message = 'Email không hợp lệ';
+      return;
+    } else return true;
   }
 }
 /** Error when invalid control is dirty, touched, or submitted. */
