@@ -1,3 +1,34 @@
-<div class="service container">
+<div class="shop cotainer">
+  <div class="shop-content w-100 pt-4">
+    <div class="row w-100">
+      <div class="col w-100">
+        <div class="content-title align-items-center pb-3 d-flex flex-column">
+          <span class="title-text fs-2 text-center fw-bold gradient-text-1">DỊCH VỤ</span>
+          <div class="title-slogan">
+            <p>Trải nghiệm tốt những dịch vụ của PETINI</p>
+          </div>
+          <img src="/assets/images/line.png" alt="">
+        </div>
+        <div class="content-items container">
+          <div class="row">
+            <!-- items -->
 
+              <a *ngFor="let item of values" routerLink="/Shop/Items" [title]="item.name" (click)="onItemSelector(item.name)"
+                class="col-lg-3 col-md-4 col-sm-6 col-12 pb-3 " >
+                <div class="card p-2 ">
+                  <img [src]="item.imgURL" [alt]="item.name" class="card-img-top item-img">
+                  <h5 class="card-title text-center fw-bold text-body text-capitalize item-text">{{item.name}}
+                  </h5>
+
+                </div>
+              </a>
+
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

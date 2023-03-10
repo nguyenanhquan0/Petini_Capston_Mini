@@ -43,7 +43,9 @@
                     </div>
                   </td>
                   <td>{{post.phone}}</td>
-                  <td> <span class="badge rounded-pill d-inline" [class]="post.status == 'ACTIVE' ? 'badge-success' : 'badge-danger'" >{{post.status == 'ACTIVE' ? 'Hoạt động' : 'Bị khóa' }}</span></td>
+                  <td> <span class="badge rounded-pill d-inline"
+                      [class]="post.status == 'ACTIVE' ? 'badge-success' : 'badge-danger'">{{post.status == 'ACTIVE' ?
+                      'Hoạt động' : 'Bị khóa' }}</span></td>
                   <!-- <td>
                 <button mat-icon-button color="primary" (click)="onItemSelector(post.id, post.username);"
                   routerLink="/Admin/Request/RequestAccount" routerLinkActive="active"><i
@@ -54,8 +56,10 @@
                   (click)="reject()"><i class="fa-solid fa-xmark"></i></button>
 
               </td> -->
-                  <td class=""><mat-slide-toggle name="isChecked{{i}}" (click)="onItemSelector(post.id, post.username)"
-                      (click)="openDialogAction()"></mat-slide-toggle></td>
+                  <td class="">
+                    <button mat-icon-button color="accent" (click)="onItemSelector(post.id, post.username)"
+                      (click)="openDialogAction()"> <mat-icon>edit</mat-icon></button>
+                  </td>
                 </tr>
                 <tr *ngIf="valuesCustomer .length < 1">
                   <td></td>
@@ -122,8 +126,7 @@
             currentPage: page,
             totalItems: count}
           ;
-          let i = index"
-          [style.cursor]="'pointer'" routerLink="AccountDetail"
+          let i = index" [style.cursor]="'pointer'" routerLink="AccountDetail"
                   (click)="onItemSelector(post.id, post.username)">
                   <td>{{post.id}}</td>
                   <td>
@@ -137,7 +140,9 @@
                     </div>
                   </td>
                   <td>{{post.phone}}</td>
-                  <td> <span class="badge rounded-pill d-inline" [class]="post.status == 'selling' ? 'badge-success' : 'badge-danger'" >{{post.status == 'ACTIVE' ? 'Hoạt động' : 'Bị khóa' }}</span></td>
+                  <td> <span class="badge rounded-pill d-inline"
+                      [class]="post.status == 'ACTIVE' ? 'badge-success' : 'badge-danger'">{{post.status == 'ACTIVE' ?
+                      'Hoạt động' : 'Bị khóa' }}</span></td>
                   <!-- <td>
         <button mat-icon-button color="primary" (click)="onItemSelector(post.id, post.username);"
           routerLink="/Admin/Request/RequestAccount" routerLinkActive="active"><i
@@ -149,10 +154,9 @@
 
       </td> -->
                   <td class="">
-                    <button mat-icon-button color="accent"  (click)="onItemSelector(post.id, post.username)"
-                    (click)="openDialogAction()"
-                    >  <mat-icon>edit</mat-icon></button>
-
+                    <button mat-icon-button color="accent" (click)="onItemSelector(post.id, post.username)"
+                      (click)="openDialogAction()"> <mat-icon>edit</mat-icon></button>
+                  </td>
                 </tr>
                 <tr *ngIf="valuesOwner.length < 1">
                   <td></td>

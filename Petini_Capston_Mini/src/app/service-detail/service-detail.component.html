@@ -39,51 +39,51 @@
             <i class="fa-solid fa-paw"></i>
           </h2>
         </div>
-        <form >
-        <div class="card-body ">
-          <div class="row w-100 justify-content-center text-center align-items-center">
-            <div class="col-8 justify-content-center text-center d-flex flex-column align-items-center">
-              <h4 class="text-titile">Chon ngay va gio</h4>
-              <mat-form-field appearance="fill" class="w-75">
-                <mat-icon matPrefix><i class="fa-solid fa-calendar-days"></i></mat-icon>
-                <mat-select matNativeControl [(ngModel)]="selectedDate" name="date">
-                  <mat-option *ngFor="let item of date" [value]="item.value" > {{item.viewValue}}</mat-option>
+        <form>
+          <div class="card-body ">
+            <div class="row w-100 justify-content-center text-center align-items-center">
+              <div class="col-8 justify-content-center text-center d-flex flex-column align-items-center">
+                <h4 class="text-titile">Chon ngay va gio</h4>
+                <mat-form-field appearance="fill" class="w-75">
+                  <mat-icon matPrefix><i class="fa-solid fa-calendar-days"></i></mat-icon>
+                  <mat-select matNativeControl [(ngModel)]="selectedDate" name="date">
+                    <mat-option *ngFor="let item of date" [value]="item.value"> {{item.viewValue}}</mat-option>
 
 
-                  <!-- <mat-option value="today">Hom nay, T6 11/03</mat-option>
+                    <!-- <mat-option value="today">Hom nay, T6 11/03</mat-option>
                   <mat-option value="tomorrow">Hom nay, T7 12/03</mat-option>
                   <mat-option value="ngaykia">Hom nay, CN 13/03</mat-option> -->
-                </mat-select>
-              </mat-form-field>
-              <div class="card bg-white rounded overflow-auto w-75">
-                <div class="card-body p-0">
-                  <div class="container p-3 vh-50">
-                    <div class="row w-100 m-0">
-                      <!-- box time -->
-                      <div class="col-3 col-xxl-2 col-xl-2 p-1">
-                        <div class="rounded-2 border-1 border border-dark">
-                          <div
-                            class="box-time d-flex align-items-center justify-content-center border-bottom border-4 border-success flex-column py-2">
-                            <h4 class="m-0">8:00</h4>
+                  </mat-select>
+                </mat-form-field>
+                <div class="card bg-white rounded overflow-auto w-75">
+                  <div class="card-body p-0">
+                    <div class="container p-3 vh-50">
+                      <div class="row w-100 m-0">
+                        <!-- box time -->
+                        <div class="col-3 col-xxl-2 col-xl-2 p-1">
+                          <div class="rounded-2 border-1 border border-dark">
+                            <div
+                              class="box-time d-flex align-items-center justify-content-center border-bottom border-4 border-success flex-column py-2">
+                              <h4 class="m-0">8:00</h4>
+                            </div>
                           </div>
                         </div>
+                        <!-- box time -->
                       </div>
-                      <!-- box time -->
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="d-flex justify-content-center align-items-center w-75 mt-4">
-                <div class="text-center p-0 login-button-div w-100">
-                  <button class="login-button btn btn-primary btn-block w-100 fa-lg gradient-custom-2 mb-3 fs-5"
-                    mat-raised-button type="submit" >
-                  Đặt lịch ngay</button>
+                <div class="d-flex justify-content-center align-items-center w-75 mt-4">
+                  <div class="text-center p-0 login-button-div w-100">
+                    <button class="login-button btn btn-primary btn-block w-100 fa-lg gradient-custom-2 mb-3 fs-5"
+                      mat-raised-button type="submit">
+                      Đặt lịch ngay</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </form>
+        </form>
       </div>
     </div>
   </div>
@@ -94,66 +94,53 @@
     <div class="row w-100">
       <div class="col w-100">
         <div class="content-title align-items-center pb-3 d-flex flex-column">
-          <span class="title-text fs-2 text-center fw-bold gradient-text-1 text-uppercase">Nhận nuôi</span>
-
-          <img src="/assets/images/line.png" alt="">
+          <span class="title-text fs-2 text-center fw-bold gradient-text-1">DỊCH VỤ NỔI BẬT</span>
+          <div class="title-slogan">
+            <p>Trải nghiệm tốt những dịch vụ của PETINI</p>
+          </div>
+          <img class="img-line" src="/assets/images/line.png" alt="">
         </div>
         <div class="content-items container">
           <div class="row">
             <!-- items -->
-            <a href="#" title="Thuốc nhỏ gáy FRONTLINE trị ve rận trên mèo"
-              class="col-lg-3 col-md-4 col-sm-6 col-12 pb-3 ">
+            <a href="#" title="Tắm rửa thú cưng" class="col-lg-3 col-md-4 col-sm-6 col-12 pb-3 ">
               <div class="card p-2 ">
-                <img src="/assets/images/pet-1.jpg" alt="Thuốc nhỏ gáy FRONTLINE trị ve rận trên mèo"
-                  class="card-img-top item-img">
-                <h5
-                  class="card-title text-center fw-bold text-body text-capitalize item-text text-truncate d-flex align-items-center">
-                  Mèo Anh Lông Ngắn
-                </h5>
-                <h6 class="card-text text-center ">Liên hệ</h6>
-              </div>
-            </a>
-            <!-- items -->
-            <a href="#" title="Thuốc nhỏ gáy FRONTLINE trị ve rận trên mèo"
-              class="col-lg-3 col-md-4 col-sm-6 col-12 pb-3 ">
-              <div class="card p-2 ">
-                <img src="/assets/images/pet-2.jpg" alt="Thuốc nhỏ gáy FRONTLINE trị ve rận trên mèo"
-                  class="card-img-top item-img">
-                <h5
-                  class="card-title text-center fw-bold text-body text-capitalize item-text text-truncate d-flex align-items-center">
-                  chó poodle nâu
-                </h5>
-                <h6 class="card-text text-center ">Liên hệ</h6>
-              </div>
-            </a>
-            <!-- items -->
-            <a href="#" title="Thuốc nhỏ gáy FRONTLINE trị ve rận trên mèo"
-              class="col-lg-3 col-md-4 col-sm-6 col-12 pb-3 ">
-              <div class="card p-2 ">
-                <img src="/assets/images/pet-3.jpg" alt="Thuốc nhỏ gáy FRONTLINE trị ve rận trên mèo"
-                  class="card-img-top item-img">
-                <h5
-                  class="card-title text-center fw-bold text-body text-capitalize item-text text-truncate d-flex align-items-center">
-                  chó alaska
-                </h5>
-                <h6 class="card-text text-center ">Liên hệ</h6>
-              </div>
-            </a>
-            <!-- items -->
-            <a href="#" title="Thuốc nhỏ gáy FRONTLINE trị ve rận trên mèo"
-              class="col-lg-3 col-md-4 col-sm-6 col-12 pb-3 ">
-              <div class="card p-2 ">
-                <img src="/assets/images/pet-4.jpg" alt="Thuốc nhỏ gáy FRONTLINE trị ve rận trên mèo"
-                  class="card-img-top item-img">
-                <h5
-                  class="card-title text-center fw-bold text-body text-capitalize item-text text-truncate d-flex align-items-center">
-                  Mèo ba tư lông ngắn
-                </h5>
-                <h6 class="card-text text-center ">Liên hệ</h6>
-              </div>
-            </a>
+                <img src="/assets/images/service-1.jpg" alt="Tắm rửa thú cưng" class="card-img-top item-img">
+                <h6
+                  class="card-text text-center fw-bold text-body text-capitalize item-text text-truncate d-flex align-items-center">
+                  Tắm rửa thú cưng</h6>
 
+              </div>
+            </a>
+            <!-- items -->
+            <a href="#" title="Tắm rửa thú cưng" class="col-lg-3 col-md-4 col-sm-6 col-12 pb-3 ">
+              <div class="card p-2 ">
+                <img src="/assets/images/service-4.jpeg" alt="Tắm rửa thú cưng" class="card-img-top item-img">
+                <h6
+                  class="card-text text-center fw-bold text-body text-capitalize item-text text-truncate d-flex align-items-center">
+                  Cắt tỉa lông thú cưng</h6>
 
+              </div>
+            </a>
+            <!-- items -->
+            <a href="#" title="Tắm rửa thú cưng" class="col-lg-3 col-md-4 col-sm-6 col-12 pb-3 ">
+              <div class="card p-2 ">
+                <img src="/assets/images/service-3.jpg" alt="Tắm rửa thú cưng" class="card-img-top item-img">
+                <h6
+                  class="card-text text-center fw-bold text-body text-capitalize item-text text-truncate d-flex align-items-center">
+                  Vệ sinh tai thú cưng</h6>
+
+              </div>
+            </a>
+            <!-- items -->
+            <a href="#" title="Tắm rửa thú cưng" class="col-lg-3 col-md-4 col-sm-6 col-12 pb-3 ">
+              <div class="card p-2 ">
+                <img src="/assets/images/service-2.png" alt="Tắm rửa thú cưng" class="card-img-top item-img">
+                <h6
+                  class="card-text text-center fw-bold text-body text-capitalize item-text text-truncate d-flex align-items-center">
+                  Cắt móng, răng thú cưng </h6>
+              </div>
+            </a>
           </div>
         </div>
       </div>
