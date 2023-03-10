@@ -2,7 +2,6 @@ package com.capstone.mini.petini.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,6 +33,6 @@ public class Cart extends BaseModel {
 
     private @Setter Long quantity;
 
-    @OneToMany(mappedBy = "cart", cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+    @OneToMany(mappedBy = "cart")
     private @Setter List<CartProduct> cartProduct;
 }
