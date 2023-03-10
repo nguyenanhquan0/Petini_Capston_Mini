@@ -64,12 +64,18 @@ public class ProductService implements IProductService {
     @Override
     @Transactional
     public Product updateProduct(Product newProduct, String productName) {
-        if (productRepo.findProductByName(newProduct.getName()).isPresent()) {
-            throw new DuplicateException("There is a product have a same name");
-        }
+
         Product product = productRepo.findProductByName(productName)
                 .orElseThrow(() -> new ProductNotFoundException(productName));
+        for (Product p : productRepo.findAll()) {
+            if (!p.getName().equals(productName)) {
+                if (p.getName().equals(newProduct.getName())) {
+                    throw new DuplicateException("There was another product have a same name");
+                }
+            }
+        }
         Product updatedProduct = product.newProductBuilder(newProduct);
+
         return updatedProduct;
     }
 
