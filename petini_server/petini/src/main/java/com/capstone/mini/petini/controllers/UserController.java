@@ -68,8 +68,8 @@ public class UserController {
     }
 
     @GetMapping("/user-list")
-    public ResponseEntity<?> getUserListByTypeAndStatus(String type, String status) {
-        List<PetiniUser> userList = userService.getUserListByTypeAndStatus(type, status);
+    public ResponseEntity<?> getUserListByTypeAndStatus(String type) {
+        List<PetiniUser> userList = userService.getUserListByTypeAndStatus(type);
         List<PetiniUserResponseDto> responseUserList = userList.stream()
                 .map(u -> modelMapper.map(u, PetiniUserResponseDto.class)).collect(Collectors.toList());
 

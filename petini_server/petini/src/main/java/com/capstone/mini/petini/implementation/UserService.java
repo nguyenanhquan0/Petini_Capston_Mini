@@ -102,16 +102,16 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public List<PetiniUser> getUserListByTypeAndStatus(String type, String status) {
+    public List<PetiniUser> getUserListByTypeAndStatus(String type) {
         List<PetiniUser> userList = petiniUserRepo.findAll();
         switch (type.toUpperCase()) {
             case "CUSTOMER":
-                userList.stream().filter(u -> u.getCustomerProperty() != null && u.getStatus().equalsIgnoreCase(status))
+                userList.stream().filter(u -> u.getCustomerProperty() != null)
                         .collect(Collectors.toList());
                 break;
             case "SHOPOWNER":
                 userList.stream()
-                        .filter(u -> u.getShopOwnerProperty() != null && u.getStatus().equalsIgnoreCase(status))
+                        .filter(u -> u.getShopOwnerProperty() != null)
                         .collect(Collectors.toList());
                 break;
         }

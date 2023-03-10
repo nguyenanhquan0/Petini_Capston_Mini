@@ -17,5 +17,5 @@ public interface IUserService {
 
     public PetiniUser login(String username, String password);
 
-    public List<PetiniUser> getUserListByTypeAndStatus(String type, String status);
+    public List<PetiniUser> getUserListByTypeAndStatus(String type);
 }
