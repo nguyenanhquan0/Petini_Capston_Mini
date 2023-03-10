@@ -38,7 +38,7 @@ export class AccountDetailComponent {
       this.email = data["email"]
       this.phone = data["phone"]
       this.dob = data["dob"]
-      this.address = data["address"]
+      this.address = data["address"];
     }))
   }
 }
