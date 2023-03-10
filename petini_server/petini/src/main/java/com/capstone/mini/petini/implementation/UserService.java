@@ -106,11 +106,11 @@ public class UserService implements IUserService {
         List<PetiniUser> userList = petiniUserRepo.findAll();
         switch (type.toUpperCase()) {
             case "CUSTOMER":
-                userList.stream().filter(u -> u.getCustomerProperty() != null)
+                userList = userList.stream().filter(u -> u.getCustomerProperty() != null)
                         .collect(Collectors.toList());
                 break;
             case "SHOPOWNER":
-                userList.stream()
+                userList = userList.stream()
                         .filter(u -> u.getShopOwnerProperty() != null)
                         .collect(Collectors.toList());
                 break;
