@@ -49,3 +49,45 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.user {
+
+  .icon {
+    .avatar {
+      width: 40px;
+      max-width: 40px;
+    }
+  }
+
+  .username {
+    .name {
+      width: 80px;
+
+      font-size: 18px;
+      min-height: 19px;
+      line-height: 18px;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+
+    .roles {
+      font-size: 12px;
+      font-weight: 400;
+    }
+  }
+
+  .collapse-avatar {
+    .btn-collapse-avatar {
+      font-size: 20px;
+    }
+  }
+
+  .logout {
+    .btn-logout {
+      font-size: 20px;
+      color: #9a9a9a;
+    }
+  }
+}

@@ -29,6 +29,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ItemDetailComponent } from './manage-item/item-detail/item-detail.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ManageOrderComponent } from './manage-order/manage-order.component';
 
 
 
@@ -42,7 +43,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     ManageServiceComponent,
     AccountDetailComponent,
     AddAccountComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    ManageOrderComponent
   ],
   imports: [
     CommonModule,
@@ -71,7 +73,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     NgxPaginationModule,
     MatDatepickerModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule
   ]
 })
 export class ShopOwnerModule { }

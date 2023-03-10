@@ -3,7 +3,7 @@
     <div class="content row justify-content-between">
       <div class="col-md-7">
         <div class="img-fluid img-thumbnail rounded justify-content-center d-flex pt-2">
-          <img src="/assets/images/thuoc.jpg">
+          <img [src]="imageUrl">
 
         </div>
       </div>
@@ -11,34 +11,26 @@
         <div class="content-left">
           <p class="m-0"></p>
           <span class="first-text">
-            Thuốc nhỏ gáy FRONTLINE trị ve rận trên mèo
+            {{name}}
           </span>
-          <span class="fs-4 price">120.000 &#8363;</span>
+          <span class="fs-4 price">{{price}} &#8363;</span>
           <span class="second-text">
-            'Điều Trị Bằng Trái Tim- Chăm Sóc Bằng Tấm Lòng "
+            {{description}}
           </span>
-          <span class="second-text">Dịch vụ chăm sóc thú cưng PETINI luôn nỗ lực hoàn thiện và phát triển sự
-            chuyên môn hoá bằng những
-            cải tiến
-            không ngừng nhằm giữ vững vị trí hàng đầu trong các lĩnh vực chăm sóc thú cưng. Đảm bảo một môi
-            trường làm việc chuyên nghiệp, tận tâm tận tình và nhuyệt huyết .Với trang thiết bị hiện đại nhất
-            hiện nay giúp chẩn đoán và điều trị dễ dàng</span>
-          <span class="second-text"> Ngoài ra PETINI thường xuyên cập nhập những sản phẩm và chất lượng dịch vụ
-            hàng đầu trong nước và
-            ngoài nước tại PETINI để phục vụ cho việc những thú cưng và khách hàng có những trải nghiệm tuyệt
-            vời nhất.
-          </span>
-          <div class="row w-100 value-items-box">
+          <form (ngSubmit)="addToCart()">
+          <div class="row wa100 value-items-box">
             <div class="col-4">
               <mat-form-field class="value-items w-100" appearance="outline">
-                <mat-label>Số lượng</mat-label>
-                <input matInput value="0" type="number" min="0">
+                <mat-label>Số lượng: </mat-label>
+                <input matInput value="0" name="amount" type="number" min="0" [(ngModel)]="amount">
               </mat-form-field>
             </div>
-            <div class="col-8 pe-0">
-              <button mat-raised-button color="primary">Thêm Vào Giỏ Hàng</button>
+            <div class="col-2">Kho: {{quantity}}</div>
+            <div class="col-6 pe-0">
+              <button mat-raised-button color="primary" type="submit"> Thêm Vào Giỏ Hàng</button>
             </div>
           </div>
+        </form>
 
 
 

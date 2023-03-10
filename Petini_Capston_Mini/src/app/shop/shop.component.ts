@@ -11,6 +11,12 @@ import { ManageItemsService } from '../services/manage-items.service';
 export class ShopComponent implements OnInit{
   values : any[]=[];
   value:any;
+
+  public onItemSelector(name: string) {
+
+    localStorage.setItem('getItemsName', name);
+  }
+
   ngOnInit(): void {
     this.http.getListItems().subscribe(async  (data) =>{
       // this.value = data;
@@ -18,13 +24,16 @@ export class ShopComponent implements OnInit{
       //   console.log(this.i.homestayImages[0].url)
       // }
       console.log("data" , data);
+
       for(this.value of data){
+        if(this.value.status == 'SELLING'){
+          var imgUrl = await this.image.getImage('items/' + this.value.imageUrl)
+          console.log("imaURL:" , imgUrl);
+          this.values.push({imgURL:imgUrl, name:this.value.name, price:this.value.price, status:this.value.status })
+          console.log("values:", this.values);
+        }
 
 
-        var imgUrl = await this.image.getImage('items/' + this.value.imageUrl)
-        console.log("imaURL:" , imgUrl);
-        this.values.push({imgURL:imgUrl, name:this.value.name, price:this.value.price })
-        console.log("values:", this.values);
       }
 
     })

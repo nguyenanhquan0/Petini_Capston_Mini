@@ -31,11 +31,12 @@ export class ManageItemComponent implements OnInit {
           id: this.i.id,
           name: this.i.name,
           description: this.i.description,
-          status: this.status,
+          status: this.i.status,
           imageUrl: imgUrl,
           quantity: this.i.quantity,
           price: this.i.price,
         });
+        console.log(this.status);
       }
     });
   }

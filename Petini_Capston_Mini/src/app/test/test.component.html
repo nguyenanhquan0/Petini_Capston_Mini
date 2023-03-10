@@ -1,105 +1,64 @@
-<div class="wrapper">
-
-  <div class="body">
-    <div class="body-container">
-      <div class="row-avatar-infor">
-
-        <div class="avatar card">
-          <img class="card-img-top" src="/assets/images/img-4.png">
-          <div class="card-body">
-            <h5 class="text-center card-title">Qaung</h5>
-            <span class="cart-text">quang@gmail.com</span>
-            <div class="badge rounded-pill d-inline w-100 mt-4 fs-6 badge-success"  ><span class="">Hoat dong</span></div>
-          </div>
-        </div>
-
-
-
-        <!-- Edit Information -->
-        <div class="infor ">
-          <div class="card-col card">
-
-            <div class="card-header">
-              <h1>Profile</h1>
-            </div>
-            <div class="posttitle">
-
-            </div>
-            <div class="card-row">
-              <div class="col-left">
-                <!-- Username -->
-                <div class="fill">
-                  <div class="fill-text">
-                    <p>Username:</p>
-                  </div>
-
-                  <mat-form-field class="not-allow" appearance="fill">
-                    <input disabled matInput value="qaung">
-                  </mat-form-field>
-                </div>
-                <!-- <p>{{username}}</p> -->
-
-                <!-- Dob  -->
-                <div class="fill">
-                  <div class="fill-text">
-                    <p>Day of Birth:</p>
-                  </div>
-
-                  <mat-form-field>
-                    <input class="date" type="date" name="date" onfocus="(this.type='date')" matInput value="8-3-2023" >
-                  </mat-form-field>
-                </div>
-
-              </div>
-
-              <div class="col-right">
-                <!-- Email -->
-                <div class="fill">
-                  <div class="fill-text">
-                    <p>Email:</p>
-                  </div>
-                  <mat-form-field class="not-allow" appearance="fill">
-                    <input disabled matInput value="asdasd@asdasd.asdasd">
-                  </mat-form-field>
-                </div>
-
-
-                <!-- Phone -->
-                <div class="fill">
-                  <div class="fill-text">
-                    <p>Phone:</p>
-                  </div>
-
-                  <mat-form-field>
-                    <input name="phone" matInput  pattern="^[0]\d{9,12}$" type="tel" value="0999999999">
-                  </mat-form-field>
-                </div>
-              </div>
-            </div>
-            <!-- Address -->
-            <div class="address">
-              <div class="fill">
-                <div class="fill-text">
-                  <p>Address:</p>
-                </div>
-
-                <mat-form-field class="not-allow">
-                  <input matInput value="abc sasasasasasasas a sa sa s as a">
-                </mat-form-field>
-              </div>
-            </div>
-            <div class="button">
-              <button class="btn-accept w-25" mat-raised-button>Back</button>
+ <!-- Shopping cart table -->
+ <div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" class="border-0 bg-light">
+          <div class="p-2 px-3 text-uppercase">Product</div>
+        </th>
+        <th scope="col" class="border-0 bg-light">
+          <div class="py-2 text-uppercase">Price</div>
+        </th>
+        <th scope="col" class="border-0 bg-light">
+          <div class="py-2 text-uppercase">Quantity</div>
+        </th>
+        <th scope="col" class="border-0 bg-light">
+          <div class="py-2 text-uppercase">Remove</div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row" class="border-0">
+          <div class="p-2">
+            <img src="https://bootstrapious.com/i/snippets/sn-cart/product-1.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+            <div class="ml-3 d-inline-block align-middle">
+              <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">Timex Unisex Originals</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: Watches</span>
             </div>
           </div>
-        </div>
-      </div>
-
-
-
-    </div>
-  </div>
-
-
-
+        </th>
+        <td class="border-0 align-middle"><strong>$79.00</strong></td>
+        <td class="border-0 align-middle"><strong>3</strong></td>
+        <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <div class="p-2">
+            <img src="https://bootstrapious.com/i/snippets/sn-cart/product-2.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+            <div class="ml-3 d-inline-block align-middle">
+              <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">Lumix camera lense</a></h5><span class="text-muted font-weight-normal font-italic">Category: Electronics</span>
+            </div>
+          </div>
+        </th>
+        <td class="align-middle"><strong>$79.00</strong></td>
+        <td class="align-middle"><strong>3</strong></td>
+        <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <div class="p-2">
+            <img src="https://bootstrapious.com/i/snippets/sn-cart/product-3.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+            <div class="ml-3 d-inline-block align-middle">
+              <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Gray Nike running shoe</a></h5><span class="text-muted font-weight-normal font-italic">Category: Fashion</span>
+            </div>
+          </div>
+          <td class="align-middle"><strong>$79.00</strong></td>
+          <td class="align-middle"><strong>3</strong></td>
+          <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+          </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+<!-- End -->

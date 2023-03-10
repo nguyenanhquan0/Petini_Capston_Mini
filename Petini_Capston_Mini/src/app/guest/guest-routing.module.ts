@@ -8,6 +8,10 @@ import { PetComponent } from '../pet/pet.component';
 import { ServiceComponent } from '../service/service.component';
 import { ItemsComponent } from '../items/items.component';
 import { PetDetailComponent } from '../pet-detail/pet-detail.component';
+import { ProfileComponent } from '../profile/profile.component';
+import { OrderDetailComponent } from '../cart-order/order-detail/order-detail.component';
+import { HistoryOrderComponent } from '../cart-order/history-order/history-order.component';
+import { ViewCartComponent } from '../cart-order/view-cart/view-cart.component';
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
@@ -35,6 +39,10 @@ const routes: Routes = [
     ],
   },
   { path: 'Service', component: ServiceComponent },
+  {path:'Profile' , component : ProfileComponent},
+  {path: 'Cart' , component : ViewCartComponent},
+  {path:'History' , component: HistoryOrderComponent},
+  {path:'Order' , component: OrderDetailComponent},
 ];
 
 @NgModule({

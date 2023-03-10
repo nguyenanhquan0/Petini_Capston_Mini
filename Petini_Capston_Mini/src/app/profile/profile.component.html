@@ -1,0 +1,108 @@
+<div class="container mt-3 mb-5">
+  <div class="row w-100">
+    <div class="col-xl-3 col-lg-4">
+      <div class="card">
+        <img class="card-img-top" src="/assets/images/img-4.png">
+        <div class="card-body text-center">
+          <h5 class=" card-title m-0">Quang</h5>
+
+          <div class="cart-text"><span> quang@gmail.com </span></div>
+          <div class="badge rounded-pill d-inline w-100 mt-4 fs-6 badge-success"><span class="">Hoat dong</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-9 col-lg-8">
+      <div class="card">
+        <div class="card-header border-0">
+          <h1>Thông tin tài khoản</h1>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="login-input">
+                <!-- Username -->
+                <div class="username">
+                  <mat-form-field class="input-username w-100" appearance="outline">
+                    <mat-label>Tên đăng nhập</mat-label>
+                    <input matInput type="text" name="txtUsername">
+                    <mat-icon matPrefix><i class="fa-solid fa-user"></i></mat-icon>
+
+                  </mat-form-field>
+                </div>
+
+
+                <!-- Phone number -->
+                <div class="username">
+                  <mat-form-field class="input-username w-100" appearance="outline">
+                    <mat-label>Số điện thoại</mat-label>
+                    <input matInput pattern="^[0]\d{9,12}$" type="tel" name="txtPhone" maxlength="10" minlength="10">
+                    <mat-icon matPrefix><i class="fa-solid fa-phone"></i></mat-icon>
+
+                  </mat-form-field>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="login-input">
+                <!-- Email -->
+                <div class="username">
+                  <mat-form-field class="input-username w-100" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" ngModel email name="txtEmail"
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    <mat-icon matPrefix><i class="fa-regular fa-envelope"></i></mat-icon>
+
+                  </mat-form-field>
+                </div>
+
+
+
+                <!-- Day of Birth  -->
+                <div class="username">
+                  <mat-form-field class="input-username w-100" appearance="outline">
+                    <mat-label>Ngày sinh </mat-label>
+                    <input matInput name="txtDob" id="date" [matDatepicker]="picker" [min]="minDate" [max]="maxDate">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-icon matPrefix><i class="fa-solid fa-calendar-days"></i></mat-icon>
+
+                  </mat-form-field>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="login-input">
+
+
+            <!-- Address -->
+            <div class="username">
+              <mat-form-field class="input-username w-100" appearance="outline">
+                <mat-label>Địa chỉ</mat-label>
+                <input matInput type="text" name="txtAddress">
+                <mat-icon matPrefix><i class="fa-solid fa-map-location-dot"></i></mat-icon>
+
+
+
+
+              </mat-form-field>
+            </div>
+
+
+
+          </div>
+          <div class="username w-100">
+            <div class="text-center p-0 login-button-div w-100">
+              <button class="login-button btn btn-primary btn-block w-100 fa-lg gradient-custom-2 mb-3 fs-5"
+                mat-raised-button type="submit">
+                Quay lại</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

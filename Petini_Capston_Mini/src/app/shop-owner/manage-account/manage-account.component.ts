@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MessageComponent } from '../../pop-up/message/message.component';
 import { SuccessComponent } from '../../pop-up/success/success.component';
+import { ManageAccountService } from '../../services/manage-account.service';
 
 @Component({
   selector: 'app-manage-account',
@@ -9,12 +10,31 @@ import { SuccessComponent } from '../../pop-up/success/success.component';
   styleUrls: ['./manage-account.component.scss'],
 })
 export class ManageAccountComponent implements OnInit {
-  valuesCustomer: data[] = [];
-  valuesOwner: data[] = [];
+  valuesCustomer: any=[];
+  valuesOwner: any =[];
   message!: string;
 
-  constructor(public dialog: MatDialog) {}
-  ngOnInit(): void {}
+  constructor(public dialog: MatDialog , private http: ManageAccountService) {}
+  ngOnInit(): void {
+    this.http.getUserListByTypeAndStatus('CUSTOMER').subscribe((data) =>{
+      console.log(data);
+      this.valuesCustomer = data;
+      console.log(this.valuesCustomer);
+    },
+    (error) =>{
+      this.message = error;
+      this.openDialogMessage();
+    });
+    this.http.getUserListByTypeAndStatus('OWNER').subscribe((data) =>{
+      console.log(data);
+      this.valuesOwner = data;
+      console.log(this.valuesOwner);
+    },
+    (error) =>{
+      this.message = error;
+      this.openDialogMessage();
+    });
+  }
 
   title = 'pagination';
   page: number = 1;

@@ -88,6 +88,10 @@ import { MessageComponent } from './pop-up/message/message.component';
 import { SuccessComponent } from './pop-up/success/success.component';
 import { DatePipe } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ProfileComponent } from './profile/profile.component';
+import { ViewCartComponent } from './cart-order/view-cart/view-cart.component';
+import { HistoryOrderComponent } from './cart-order/history-order/history-order.component';
+import { OrderDetailComponent } from './cart-order/order-detail/order-detail.component';
 
 export const MY_DATE_FORMATS = {
   parse: {
@@ -115,6 +119,10 @@ export const MY_DATE_FORMATS = {
     TestComponent,
     MessageComponent,
     SuccessComponent,
+    ProfileComponent,
+    ViewCartComponent,
+    HistoryOrderComponent,
+    OrderDetailComponent,
   ],
   imports: [
     BrowserModule,

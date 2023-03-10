@@ -14,7 +14,7 @@
                   <div class="username">
                     <mat-form-field class="input-username w-100" appearance="outline">
                       <mat-label>
-                        Name</mat-label>
+                        Tên sản phẩm</mat-label>
                       <input matInput type="text" [(ngModel)]="name" name="txtname"
                         [readonly]="isUpdate == true ? 'false' : 'true'">
                     </mat-form-field>
@@ -22,12 +22,12 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-4">
                   <div class="login-input">
                     <!-- price -->
                     <div class="password">
                       <mat-form-field class="input-password w-100" appearance="outline">
-                        <mat-label>Price</mat-label>
+                        <mat-label>Đơn Giá</mat-label>
                         <input matInput type="number" name="txtPrice" [(ngModel)]="price"
                           [readonly]="isUpdate == true ? 'false' : 'true'" maxlength="9"
                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
@@ -35,16 +35,32 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-4">
                   <div class="login-input">
                     <!-- quatity-->
                     <div class="username">
                       <mat-form-field class="input-password w-100" appearance="outline">
-                        <mat-label>Quantity</mat-label>
+                        <mat-label>Số lượng</mat-label>
                         <input matInput type="number" name="txtQuantity" [(ngModel)]="quantity"
                           [readonly]="isUpdate == true ? 'false' : 'true'"
                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                           maxlength="9" minlength="0" min="0">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="login-input">
+                    <!-- status-->
+                    <div class="username">
+                      <mat-form-field class="input-password w-100" appearance="outline">
+                        <mat-label>Trạng thái</mat-label>
+                        <mat-select [(value)]="status" name="status" *ngIf="isUpdate">
+                          <mat-option  value="NEW" > Mới  </mat-option>
+                          <mat-option  value="SELLING"> Đang bán  </mat-option>
+                          <mat-option  value="STOP_SELLING"> Ngừng bán  </mat-option>
+                        </mat-select>
+                        <input matInput [ngModel]="status == 'NEW' ? 'Mới' : status == 'SELLING' ? 'Đang bán' : 'Ngừng bán'" *ngIf="!isUpdate" readonly name="status">
                       </mat-form-field>
                     </div>
                   </div>
@@ -56,7 +72,7 @@
                   <div class="username">
                     <mat-form-field class="input-username w-100" appearance="outline">
                       <mat-label>
-                        Description</mat-label>
+                        Mô tả</mat-label>
                       <textarea matInput type="text" [(ngModel)]="description" name="txtdescription"
                         [readonly]="isUpdate == true ? 'false' : 'true'"></textarea>
                     </mat-form-field>

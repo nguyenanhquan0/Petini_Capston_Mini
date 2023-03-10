@@ -13,6 +13,9 @@ import { ShopOwnerModule } from './shop-owner/shop-owner.module';
 import { ShopOwnerRoutingModule } from './shop-owner/shop-owner-routing.module';
 import { TestComponent } from './test/test.component';
 import { GuestRoutingModule } from './guest/guest-routing.module';
+import { ViewCartComponent } from './cart-order/view-cart/view-cart.component';
+import { HistoryOrderComponent } from './cart-order/history-order/history-order.component';
+import { OrderDetailComponent } from './cart-order/order-detail/order-detail.component';
 
 const routes: Routes = [
   {
@@ -59,6 +62,7 @@ const routes: Routes = [
   { path: 'Login', component: LoginComponent },
 
   { path: 'Register', component: RegisterComponent },
+
 ];
 
 @NgModule({

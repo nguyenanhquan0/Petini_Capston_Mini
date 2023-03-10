@@ -43,11 +43,47 @@
             <div *ngIf="isLogin == true" >
               <ul class="navbar-nav me-auto  mb-lg-0">
                 <li class="nav-item mx-4 li-login d-flex align-items-center">
+                  <div>
+                    <div class="row user ">
+                      <div class="col icon text-center align-items-center ">
+                        <img [src]="avatarUrl" class="rounded-pill avatar">
+                      </div>
+                      <div class="col username pe-0 d-flex flex-column justify-content-center">
+                        <span class="name overflow-hidden fw-bold text-break"> {{username}} </span>
+                        <div class="roles text-nowrap">{{role}}</div>
+                      </div>
+                      <div class="col collapse-avatar px-0">
+                        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"
+                          class="btn-collapse-avatar px-0">
+                          <mat-icon>expand_more</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu" >
+                          <a mat-menu-item routerLink="/Profile">
+                            <mat-icon>account_circle</mat-icon>
+                            <span>Thông tin cá nhân</span>
+                          </a>
+                          <a mat-menu-item routerLink="/Cart">
+                            <mat-icon>shopping_cart</mat-icon>
+                            <span>Giỏ hàng</span>
+                          </a>
+                          <a mat-menu-item routerLink="/ShopOwner" *ngIf="role == 'SHOPOWNER' ">
+                            <mat-icon>manage_accounts</mat-icon>
+                            <span>Trang quản lý</span>
+                          </a>
+                          <button mat-menu-item (click)="logout()">
+                            <mat-icon>logout</mat-icon>
+                            <span>Đăng xuất</span>
+                          </button>
 
+                        </mat-menu>
+                      </div>
+
+                    </div>
+                  </div>
                 </li>
                 <li class="nav-item d-flex align-items-center">
                   <button mat-raised-button (click)="logout()"
-                    class="btn-register btn btn-primary btn-block w-100 fa-lg gradient-custom-2 ">Đăng xuất </button>
+                    class="btn-register btn btn-primary btn-block w-100 fa-lg gradient-custom-2 m-0"><mat-icon class="m-0">logout</mat-icon> </button>
                 </li>
               </ul>
             </div>

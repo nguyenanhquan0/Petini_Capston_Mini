@@ -17,13 +17,14 @@ export class ItemDetailComponent implements OnInit {
     try {
       const name = localStorage.getItem('getItemsName') as string;
       console.log(name);
+
       this.http.getItem(name).subscribe(
         async (data) => {
           console.log(data);
           this.value = data;
           this.name = data['name'];
           this.description = data['description'];
-          this.status = '';
+          this.status = data['status'];
           this.quantity = data['quantity'];
           this.price = data['price'];
 
@@ -57,7 +58,7 @@ export class ItemDetailComponent implements OnInit {
   isUpdate = false;
   name!: string;
   description!: string;
-  status!: string;
+  status = "";
   imageUrl!: string;
   quantity!: string;
   price!: string;
@@ -67,7 +68,24 @@ export class ItemDetailComponent implements OnInit {
 
   updateItems() {
 
-    this.valid()
+    this.valid();
+    this.http.updateProduct(
+      this.description,
+      this.imageUrl,
+      this.name,
+      this.price,
+      this.quantity,
+      this.status
+    ).subscribe((data) =>{
+      this.message = "Thành công";
+      this.openDialogSuccess();
+      location.reload();
+    },
+    (error) =>{
+      this.message = error.message;
+      this.openDialogMessage();
+    })
+
   }
   valid(){
     if(this.name == ''){
@@ -80,9 +98,9 @@ export class ItemDetailComponent implements OnInit {
       this.quantity = this.value.quantity;
     } else
     if(this.showReview){
-      this.imageUrl = ' ' + this.itemFile.name;
+      this.imageUrl =  this.name + ' ' + this.itemFile.name;
     }else if(!this.showReview){
-      this.imageUrl = this.value.imageUrl
+      this.imageUrl = this.value.imageUrl;
     }
   }
 

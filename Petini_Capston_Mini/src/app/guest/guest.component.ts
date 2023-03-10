@@ -10,15 +10,7 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class GuestComponent implements OnInit{
   onActivate(event:any) {
-    // window.scroll(0,0);
     window.scrollTo(0,0);
-    // window.scroll({
-    //         top: 0,
-    //         left: 0,
-    //  });
-    //  document.body.scrollTop = 0;
-     //or document.querySelector('body').scrollTo(0,0)
-
  }
 
 
@@ -40,13 +32,14 @@ export class GuestComponent implements OnInit{
      }else{
       this.isLogin=false;
      }
-
-
+     this.username = localStorage.getItem('username');
+    this.role = localStorage.getItem('roles');
  }
 
 
-
-
+ avatarUrl : any;
+username: any
+ role:any
 
  constructor(
   private router: Router,private route: ActivatedRoute,

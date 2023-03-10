@@ -7,6 +7,7 @@ import { ItemDetailComponent } from './manage-item/item-detail/item-detail.compo
 import { ManageAccountComponent } from './manage-account/manage-account.component';
 import { AccountDetailComponent } from './manage-account/account-detail/account-detail.component';
 import { AddAccountComponent } from './manage-account/add-account/add-account.component';
+import { ProfileComponent } from '../profile/profile.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,7 @@ const routes: Routes = [
           },
         ],
       },
+      {path: 'Profile' , component: ProfileComponent}
     ],
   },
 ];
