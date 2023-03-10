@@ -1,0 +1,29 @@
+.page-body{
+  min-height: 79vh;
+  background: #eecda3;
+  background: -webkit-linear-gradient(to right, #eecda3, #ef629f);
+  background: linear-gradient(to right, #eecda3, #ef629f);
+}
+
+.btn-register {
+  color: white !important;
+  font-weight: 500;
+}
+
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: rgb(238, 42, 123) 0%;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgb(238, 42, 123) 0%, rgb(255, 125, 184) 100%);
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgb(238, 42, 123) 0%, rgb(255, 125, 184) 100%);
+}
+
+.fs-14{
+  font-size:14px
+}
+.wpx-100{
+  width: 100px;
+}
