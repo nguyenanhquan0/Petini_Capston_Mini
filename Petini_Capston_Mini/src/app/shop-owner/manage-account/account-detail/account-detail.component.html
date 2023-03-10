@@ -24,7 +24,7 @@
                 <div class="username">
                   <mat-form-field class="input-username w-100" appearance="outline">
                     <mat-label>Tên đăng nhập</mat-label>
-                    <input matInput type="text" name="txtUsername">
+                    <input matInput type="text" name="txtUsername" [(ngModel)]="username">
                     <mat-icon matPrefix><i class="fa-solid fa-user"></i></mat-icon>
 
                   </mat-form-field>
@@ -35,7 +35,7 @@
                 <div class="username">
                   <mat-form-field class="input-username w-100" appearance="outline">
                     <mat-label>Số điện thoại</mat-label>
-                    <input matInput pattern="^[0]\d{9,12}$" type="tel" name="txtPhone" maxlength="10" minlength="10">
+                    <input matInput pattern="^[0]\d{9,12}$" type="tel" name="txtPhone" maxlength="10" minlength="10" [(ngModel)]="username">
                     <mat-icon matPrefix><i class="fa-solid fa-phone"></i></mat-icon>
 
                   </mat-form-field>
@@ -49,7 +49,7 @@
                 <div class="username">
                   <mat-form-field class="input-username w-100" appearance="outline">
                     <mat-label>Email</mat-label>
-                    <input matInput type="email" ngModel email name="txtEmail"
+                    <input matInput type="email" ngModel email name="txtEmail" [(ngModel)]="email"
                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                     <mat-icon matPrefix><i class="fa-regular fa-envelope"></i></mat-icon>
 
@@ -62,7 +62,7 @@
                 <div class="username">
                   <mat-form-field class="input-username w-100" appearance="outline">
                     <mat-label>Ngày sinh </mat-label>
-                    <input matInput name="txtDob" id="date" [matDatepicker]="picker" [min]="minDate" [max]="maxDate">
+                    <input matInput name="txtDob" id="date" [matDatepicker]="picker" [min]="minDate" [max]="maxDate" [(ngModel)]="dob">
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                     <mat-icon matPrefix><i class="fa-solid fa-calendar-days"></i></mat-icon>
@@ -81,7 +81,7 @@
             <div class="username">
               <mat-form-field class="input-username w-100" appearance="outline">
                 <mat-label>Địa chỉ</mat-label>
-                <input matInput type="text" name="txtAddress">
+                <input matInput type="text" name="txtAddress" [(ngModel)]="address">
                 <mat-icon matPrefix><i class="fa-solid fa-map-location-dot"></i></mat-icon>
 
 
