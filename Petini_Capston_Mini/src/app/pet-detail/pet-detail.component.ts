@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./pet-detail.component.scss']
 })
 export class PetDetailComponent {
-type = "mèo Anh lông ngắn";
+
 }

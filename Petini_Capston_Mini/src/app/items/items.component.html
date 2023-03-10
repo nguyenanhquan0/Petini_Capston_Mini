@@ -14,21 +14,26 @@
             {{name}}
           </span>
           <span class="fs-4 price">{{price}} &#8363;</span>
-          <span class="second-text">
+          <span class="second-text mb-3">
             {{description}}
-          </span>
+          </span >
+          <hr class="w-100">
           <form (ngSubmit)="addToCart()">
-          <div class="row wa100 value-items-box">
+
+          <div class="row w-100 value-items-box ">
             <div class="col-4">
               <mat-form-field class="value-items w-100" appearance="outline">
                 <mat-label>Số lượng: </mat-label>
                 <input matInput value="0" name="amount" type="number" min="0" [(ngModel)]="amount">
               </mat-form-field>
             </div>
-            <div class="col-2">Kho: {{quantity}}</div>
-            <div class="col-6 pe-0">
+
+            <div class="col-8 pe-0">
               <button mat-raised-button color="primary" type="submit"> Thêm Vào Giỏ Hàng</button>
             </div>
+          </div>
+          <div class="row w-100 value-item-box">
+            <div class="col">Kho: {{quantity}}</div>
           </div>
         </form>
 
