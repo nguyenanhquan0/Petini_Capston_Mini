@@ -56,13 +56,14 @@ export class UserService {
 
   // 2 GET
   // /api/user/info
-  public getUserInfo(username:string) {
+  public getUserInfo() {
     this.httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json ',
         'Authorization': 'Bearer ' + localStorage.getItem('userToken'),
       }),
     };
+    let username = localStorage.getItem('username')
     console.log(this.httpOptions.headers);
     const url = `${this.REST_API_SERVER}/api/user/info?username=${username}`;
     return this.httpClient
