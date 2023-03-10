@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.capstone.mini.petini.repositories.CartProductRepo;
 
 import com.capstone.mini.petini.handlers.exceptions.InvalidException;
 import com.capstone.mini.petini.model.Cart;
@@ -24,12 +25,14 @@ public class CartService implements ICartService {
     @Autowired
     private IUserService userService;
 
+    @Autowired
+    private CartProductRepo cartProductRepo;
+
     @Override
     @Transactional
     public Cart addProductToCart(String productName, long quantity) {
 
         Cart customerCart = this.findCustomerCart();
-        // CartProduct cartProduct = new CartProduct();
 
         long totalPrice = customerCart.getTotalPrice();
         Product product = productService.findProductByName(productName);
@@ -42,6 +45,7 @@ public class CartService implements ICartService {
         newCartProduct.setCart(customerCart);
         newCartProduct.setProduct(product);
         newCartProduct.setQuantity(quantity);
+        cartProductRepo.save(newCartProduct);
         product.setCartProduct(List.of(newCartProduct));
         currentCartProduct.add(newCartProduct);
         for (CartProduct p : currentCartProduct) {

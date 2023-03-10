@@ -27,7 +27,7 @@ public class ShopOwner {
     private @Setter List<Product> products;
 
     @OneToMany(mappedBy = "shopOwner")
-    private @Setter List<PetiniService> services;
+    private @Setter List<PetiniAfterCare> services;
 
     @OneToOne(mappedBy = "shopOwnerProperty")
     private @Setter PetiniUser user;
