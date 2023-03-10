@@ -23,28 +23,28 @@
                   <td>
                     <div class="d-flex align-items-center">
                       <img
-                          [src]=""
+                          [src]="item.imageUrl"
                           alt=""
                           style="width: 45px; height: 45px"
                           class="rounded-circle"
                           />
                       <div class="ms-3">
                         <p class="fw-bold mb-1">
-
+                          {{item.name}}
 
                         </p>
-                        <p class="text-muted mb-0">thức ăn cho mèo</p>
+                        <p class="text-muted mb-0 text-descrip">{{item.description}}</p>
                       </div>
                     </div>
                   </td>
                   <td>
 
-                    <p class="text-muted mb-0">100.000</p>
+                    <p class="text-muted mb-0">{{item.price}}</p>
                   </td>
                   <td>
-                    <span> 100</span>
+                    <span> {{item.quantity}}</span>
                   </td>
-                  <td>100.000</td>
+                  <td>{{(item.price * item.quantity)}}</td>
                   <td>
                     <button type="button" class="btn btn-link btn-sm btn-rounded">
 
