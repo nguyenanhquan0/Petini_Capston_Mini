@@ -1,1 +1,134 @@
-<p>manage-service works!</p>
+<div class="container-fluid">
+  <div class="header row">
+    <div class="col-6">
+      <h1>Quản lý sản phẩm</h1>
+    </div>
+    <div class="col-6 text-end "> <button mat-raised-button routerLink="AddItems">Tạo Sản Phẩm</button></div>
+
+  </div>
+
+  <div class="row">
+    <div class="col col ">
+      <div class="body card mb-4">
+
+
+
+        <table class="table table-striped table-hover mt-2 align-middle" style="height:60vh">
+          <thead class="">
+            <tr class="fw-5">
+              <th class="w-2">ID</th>
+              <th >Tên</th>
+              <th class="w-1">Giá</th>
+              <th class="w-1">Số lượng</th>
+              <th class="w-1">Trạng thái</th>
+              <th class="w-1">Xem và Sửa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr matRipple *ngFor="let post of values | paginate:{
+              itemsPerPage: tableSize,
+              currentPage: page,
+              totalItems: count
+              };
+              let i = index"
+              [style.cursor]="'pointer'" routerLink="ItemsDetail"
+                (click)="onItemSelector(post.id, post.name)">
+              <td >
+                {{post.id}}
+              </td>
+              <td >
+
+                <div class="d-flex align-items-center">
+                  <img [src]="post.imageUrl" alt="" style="width: 45px; height: 45px" class="rounded-circle" />
+                  <div class="ms-3">
+                    <p class="fw-bold mb-1"> {{post.name}}</p>
+                    <p class="text-muted mb-0 overflow-hidden text-break"> {{post.description}}</p>
+                  </div>
+                </div>
+              </td>
+              <td >
+                {{post.price}}
+              </td>
+              <td >
+                {{post.quantity}}
+              </td>
+              <td> <span class="badge rounded-pill d-inline" [class]="post.status == 'SELLING' ? 'badge-success' :post.status=='NEW'? 'badge-warning' : 'badge-danger'" >{{post.status == 'SELLING' ? 'Đang bán' : post.status == 'NEW' ? 'Mới' : 'Ngừng bán' }}</span></td>
+              <td class="text-center">
+
+                <button mat-icon-button color="accent"
+                 >  <mat-icon>edit</mat-icon></button>
+
+
+              </td>
+
+            </tr>
+
+
+            <tr *ngIf="values.length < 1">
+              <td></td>
+              <td>
+
+              </td>
+
+              <td></td>
+              <td></td>
+              <td></td>
+              <td >
+              </td>
+            </tr>
+            <tr *ngIf="values.length < 2">
+
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr *ngIf="values.length < 3">
+
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr *ngIf="values.length < 4">
+
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr *ngIf="values.length < 5">
+
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- pagination -->
+        <div class="row w-100">
+          <div class="col-sm-6">
+
+          </div>
+          <div class="col-sm-6 d-flex justify-content-center">
+            <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChangeCustomer($event)">
+            </pagination-controls>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
