@@ -77,6 +77,7 @@ public class UserService implements IUserService {
         user.setShopOwnerProperty(shopOwner);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole(shopOwnerRole);
+        user.setStatus(AccountStatus.ACTIVE.name());
         PetiniUser savedUser = petiniUserRepo.save(user);
 
         return savedUser;
