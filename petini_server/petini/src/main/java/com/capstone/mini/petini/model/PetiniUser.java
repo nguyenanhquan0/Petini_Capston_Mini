@@ -42,6 +42,9 @@ public class PetiniUser extends BaseModel {
     @Column
     private @Setter String dob;
 
+    @Column
+    private @Setter String status;
+
     @OneToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
     private @Setter Customer customerProperty;
 
@@ -51,4 +54,14 @@ public class PetiniUser extends BaseModel {
     @ManyToOne
     private @Setter PetiniRole role;
 
+    public PetiniUser newUserBuilder(PetiniUser newUser) {
+        this.setUsername(newUser.getUsername());
+        this.setEmail(newUser.getEmail());
+        this.setAddress(newUser.getAddress());
+        this.setPhone(newUser.getPhone());
+        this.setDob(newUser.getDob());
+        this.setStatus(newUser.getStatus());
+
+        return this;
+    }
 }

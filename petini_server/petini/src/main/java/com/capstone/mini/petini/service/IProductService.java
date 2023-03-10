@@ -10,4 +10,6 @@ public interface IProductService {
     List<Product> getAllProduct();
 
     Product findProductByName(String name);
+
+    Product updateProduct(Product newProduct, String productName);
 }

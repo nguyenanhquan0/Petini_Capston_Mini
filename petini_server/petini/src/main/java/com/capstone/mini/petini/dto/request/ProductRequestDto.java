@@ -15,4 +15,5 @@ public class ProductRequestDto {
     private Long quantity;
     private String description;
     private String imageUrl;
+    private String status;
 }

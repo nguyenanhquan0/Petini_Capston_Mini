@@ -2,12 +2,14 @@ package com.capstone.mini.petini.implementation;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.capstone.mini.petini.handlers.exceptions.AccountNotFoundException;
 import com.capstone.mini.petini.handlers.exceptions.InvalidUsernameOrPasswordException;
@@ -16,6 +18,7 @@ import com.capstone.mini.petini.model.Customer;
 import com.capstone.mini.petini.model.PetiniRole;
 import com.capstone.mini.petini.model.PetiniUser;
 import com.capstone.mini.petini.model.ShopOwner;
+import com.capstone.mini.petini.model.status.AccountStatus;
 import com.capstone.mini.petini.repositories.PetiniUserRepo;
 import com.capstone.mini.petini.service.IRoleService;
 import com.capstone.mini.petini.service.IUserService;
@@ -47,6 +50,7 @@ public class UserService implements IUserService {
     public PetiniUser registerCustomerAccount(PetiniUser user) {
         Customer customer = new Customer();
         Cart cart = new Cart();
+
         PetiniRole role = roleService.findRoleByName("CUSTOMER");
         cart.setCustomer(customer);
         customer.setCart(cart);
@@ -57,6 +61,7 @@ public class UserService implements IUserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole(role);
         user.setCreatedDate(dateFormatUtil.formatDateTimeNowToString());
+        user.setStatus(AccountStatus.ACTIVE.name());
 
         PetiniUser savedUser = petiniUserRepo.save(user);
 
@@ -94,6 +99,32 @@ public class UserService implements IUserService {
         }
 
         return user.get();
+    }
+
+    @Override
+    public List<PetiniUser> getUserListByTypeAndStatus(String type, String status) {
+        List<PetiniUser> userList = petiniUserRepo.findAll();
+        switch (type.toUpperCase()) {
+            case "CUSTOMER":
+                userList.stream().filter(u -> u.getCustomerProperty() != null && u.getStatus().equalsIgnoreCase(status))
+                        .collect(Collectors.toList());
+                break;
+            case "SHOPOWNER":
+                userList.stream()
+                        .filter(u -> u.getShopOwnerProperty() != null && u.getStatus().equalsIgnoreCase(status))
+                        .collect(Collectors.toList());
+                break;
+        }
+        return userList;
+
+    }
+
+    @Override
+    @Transactional
+    public PetiniUser updateUser(PetiniUser newUser, String username) {
+        PetiniUser user = this.findUserByUsername(username);
+        PetiniUser updatedUser = user.newUserBuilder(newUser);
+        return updatedUser;
     }
 
 }

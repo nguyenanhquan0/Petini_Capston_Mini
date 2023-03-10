@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 
+import com.capstone.mini.petini.handlers.exceptions.DuplicateException;
 import com.capstone.mini.petini.handlers.exceptions.InvalidException;
 import com.capstone.mini.petini.handlers.exceptions.NotFoundException;
 
@@ -25,6 +26,13 @@ public class ApplicationExceptionHandler {
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     public ResponseMessage invalidException(InvalidException exc, WebRequest web) {
         return new ResponseMessage(HttpStatus.BAD_REQUEST.getReasonPhrase(), HttpStatus.BAD_REQUEST.value(), new Date(),
+                exc.getMessage(), web.getDescription(false));
+    }
+
+    @ExceptionHandler(DuplicateException.class)
+    @ResponseStatus(value = HttpStatus.CONFLICT)
+    public ResponseMessage duplicateException(DuplicateException exc, WebRequest web) {
+        return new ResponseMessage(HttpStatus.CONFLICT.getReasonPhrase(), HttpStatus.CONFLICT.value(), new Date(),
                 exc.getMessage(), web.getDescription(false));
     }
 }

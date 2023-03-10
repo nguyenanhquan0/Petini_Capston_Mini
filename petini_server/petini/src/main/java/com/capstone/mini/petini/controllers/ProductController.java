@@ -10,12 +10,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.capstone.mini.petini.dto.request.ProductListDto;
+import com.capstone.mini.petini.dto.request.ProductRequestDto;
 import com.capstone.mini.petini.dto.response.ProductResponseDto;
 import com.capstone.mini.petini.model.Product;
 import com.capstone.mini.petini.service.IProductService;
@@ -58,4 +60,13 @@ public class ProductController {
         return new ResponseEntity<ProductResponseDto>(responseProduct, HttpStatus.OK);
     }
 
+    @PutMapping("/product-update")
+    @PreAuthorize("hasRole('ROLE_SHOPOWNER')")
+    public ResponseEntity<?> updateProduct(@RequestBody ProductRequestDto requestNewProduct, String productName) {
+        Product newProduct = modelMapper.map(requestNewProduct, Product.class);
+        Product updatedProduct = productService.updateProduct(newProduct, productName);
+        ProductResponseDto responseProduct = modelMapper.map(updatedProduct, ProductResponseDto.class);
+
+        return new ResponseEntity<ProductResponseDto>(responseProduct, HttpStatus.OK);
+    }
 }

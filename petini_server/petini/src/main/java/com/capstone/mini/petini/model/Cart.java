@@ -2,14 +2,13 @@ package com.capstone.mini.petini.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
@@ -33,7 +32,8 @@ public class Cart extends BaseModel {
     @OneToOne(mappedBy = "cart")
     private @Setter Customer customer;
 
-    @ManyToMany
-    @JoinTable(name = "product_cart", joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "cart_id", referencedColumnName = "id"))
-    private @Setter List<Product> products;
+    private @Setter Long quantity;
+
+    @OneToMany(mappedBy = "cart", cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+    private @Setter List<CartProduct> cartProduct;
 }
