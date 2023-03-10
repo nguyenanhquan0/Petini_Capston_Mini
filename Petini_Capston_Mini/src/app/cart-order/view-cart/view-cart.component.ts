@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ManageItemsService } from '../../services/manage-items.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SuccessComponent } from '../../pop-up/success/success.component';
 import { MessageComponent } from '../../pop-up/message/message.component';
 import { ImageService } from '../../services/image.service';
+import { ProductService } from '../../services/product.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-view-cart',
@@ -15,7 +16,7 @@ export class ViewCartComponent implements OnInit {
   cart: any;
 
   ngOnInit(): void {
-    this.http.getCart().subscribe(
+    this.http.getCustomerShoppingCart().subscribe(
       async (data) => {
          const cartProduct = data['cartProduct'];
          let imgUrl ='';
@@ -47,7 +48,7 @@ export class ViewCartComponent implements OnInit {
     );
   }
   message: any;
-  constructor(private http: ManageItemsService, public dialog: MatDialog, private image: ImageService,) {}
+  constructor(private http: CartService, public dialog: MatDialog, private image: ImageService,) {}
   openDialogSuccess() {
     localStorage.setItem('registerSuccess', '');
 

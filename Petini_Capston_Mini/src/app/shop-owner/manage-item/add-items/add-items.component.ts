@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AddItemsService } from '../../../services/add-items.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
@@ -7,6 +6,7 @@ import { ImageService } from '../../../services/image.service';
 import { MessageComponent } from '../../../pop-up/message/message.component';
 import { SuccessComponent } from '../../../pop-up/success/success.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ProductService } from '../../../services/product.service';
 
 @Component({
   selector: 'app-add-items',
@@ -27,7 +27,7 @@ export class AddItemsComponent implements OnInit {
     });
   }
   constructor(
-    private http: AddItemsService,
+    private http: ProductService,
     private router: Router,
     private route: ActivatedRoute,
     private storage: AngularFireStorage,
@@ -137,7 +137,7 @@ export class AddItemsComponent implements OnInit {
       }
       console.log(myItemsList);
 
-      this.http.addItems(myItemsList).subscribe((data) => {
+      this.http.createListProduct(myItemsList).subscribe((data) => {
         for (let value of this.items) {
           this.file = value.file;
           const path = 'items/' + value.name + ' ' + this.file.name;

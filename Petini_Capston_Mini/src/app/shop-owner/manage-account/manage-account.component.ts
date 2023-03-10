@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MessageComponent } from '../../pop-up/message/message.component';
 import { SuccessComponent } from '../../pop-up/success/success.component';
-import { ManageAccountService } from '../../services/manage-account.service';
+import { UserService } from '../../services/user.service';
+
 
 @Component({
   selector: 'app-manage-account',
@@ -14,7 +15,7 @@ export class ManageAccountComponent implements OnInit {
   valuesOwner: any =[];
   message!: string;
 
-  constructor(public dialog: MatDialog , private http: ManageAccountService) {}
+  constructor(public dialog: MatDialog , private http: UserService) {}
   ngOnInit(): void {
     this.http.getUserListByTypeAndStatus('CUSTOMER').subscribe((data) =>{
       console.log(data);

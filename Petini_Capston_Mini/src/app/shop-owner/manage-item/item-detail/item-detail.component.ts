@@ -3,9 +3,10 @@ import { ImageService } from '../../../services/image.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MessageComponent } from '../../../pop-up/message/message.component';
 import { SuccessComponent } from '../../../pop-up/success/success.component';
-import { ManageItemsService } from '../../../services/manage-items.service';
+
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { getStorage, ref } from "firebase/storage";
+import { ProductService } from '../../../services/product.service';
 
 @Component({
   selector: 'app-item-detail',
@@ -18,7 +19,7 @@ export class ItemDetailComponent implements OnInit {
       const name = localStorage.getItem('getItemsName') as string;
       console.log(name);
 
-      this.http.getItem(name).subscribe(
+      this.http.getProductDetail(name).subscribe(
         async (data) => {
           console.log(data);
           this.value = data;
@@ -50,7 +51,7 @@ export class ItemDetailComponent implements OnInit {
   constructor(
     private image: ImageService,
     public dialog: MatDialog,
-    private http: ManageItemsService,
+    private http: ProductService,
     private storage: AngularFireStorage,
   ) {}
 

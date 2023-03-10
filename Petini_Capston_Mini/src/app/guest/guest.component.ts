@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { LoginService } from '../services/login.service';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
@@ -38,12 +37,10 @@ export class GuestComponent implements OnInit{
 
 
  avatarUrl : any;
-username: any
+ username: any ;
  role:any
-
  constructor(
   private router: Router,private route: ActivatedRoute,
-  public loginService : LoginService
  ){
   if(localStorage.getItem('userToken')){
     this.isLogin = true;

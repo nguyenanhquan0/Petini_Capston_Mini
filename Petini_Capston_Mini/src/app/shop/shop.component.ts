@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from '../services/image.service';
-import { ManageItemsService } from '../services/manage-items.service';
+import { ProductService } from '../services/product.service';
 
 
 @Component({
@@ -18,7 +18,7 @@ export class ShopComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.http.getListItems().subscribe(async  (data) =>{
+    this.http.getProductList().subscribe(async  (data) =>{
       // this.value = data;
       // for(this.i of this.value ){
       //   console.log(this.i.homestayImages[0].url)
@@ -38,7 +38,7 @@ export class ShopComponent implements OnInit{
 
     })
   }
-  constructor(private image: ImageService,private http: ManageItemsService){
+  constructor(private image: ImageService,private http: ProductService){
 
   }
 

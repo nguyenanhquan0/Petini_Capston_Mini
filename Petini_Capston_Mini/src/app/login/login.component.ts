@@ -7,12 +7,12 @@ import {
 } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LoginService } from '../services/login.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Output, EventEmitter } from '@angular/core';
 import { SuccessComponent } from '../pop-up/success/success.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MessageComponent } from '../pop-up/message/message.component';
+import { UserService } from '../services/user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   message: any;
   constructor(
-    private http: LoginService,
+    private http: UserService,
     private router: Router,
     private route: ActivatedRoute,
     public dialog: MatDialog

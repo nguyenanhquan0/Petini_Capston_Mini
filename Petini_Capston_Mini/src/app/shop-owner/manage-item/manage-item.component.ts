@@ -3,8 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MessageComponent } from '../../pop-up/message/message.component';
 import { SuccessComponent } from '../../pop-up/success/success.component';
 import { ImageService } from '../../services/image.service';
-import { ManageItemsService } from '../../services/manage-items.service';
-
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-manage-item',
@@ -20,10 +19,10 @@ export class ManageItemComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private image: ImageService,
-    private http: ManageItemsService
+    private http: ProductService
   ) {}
   ngOnInit(): void {
-    this.http.getListItems().subscribe(async (data) => {
+    this.http.getProductList().subscribe(async (data) => {
       console.log(data);
       for (this.i of data) {
         var imgUrl = await this.image.getImage('items/' + this.i.imageUrl);

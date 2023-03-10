@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MessageComponent } from '../pop-up/message/message.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ImageService } from '../services/image.service';
-import { ManageItemsService } from '../services/manage-items.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SuccessComponent } from '../pop-up/success/success.component';
+import { ProductService } from '../services/product.service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-items',
@@ -18,7 +19,7 @@ export class ItemsComponent implements OnInit {
       if (localStorage.getItem('userToken')) {
         const name = localStorage.getItem('getItemsName') as string;
         console.log(name);
-        this.http.getItem(name).subscribe(
+        this.httpProduct.getProductDetail(name).subscribe(
           async (data) => {
             console.log(data);
             this.name = data['name'];
@@ -49,7 +50,8 @@ export class ItemsComponent implements OnInit {
   constructor(
     private image: ImageService,
     public dialog: MatDialog,
-    private http: ManageItemsService,
+    private httpProduct: ProductService,
+    private httpCart: CartService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
@@ -71,7 +73,7 @@ export class ItemsComponent implements OnInit {
 
   addToCart() {
     console.log(this.amount)
-    this.http.addToCart(this.name, this.amount).subscribe((data)=>{
+    this.httpCart.addProductToShoppingCart(this.name, this.amount).subscribe((data)=>{
       console.log("suces");
       this.message = "Thành Công";
       this.openDialogSuccess();
