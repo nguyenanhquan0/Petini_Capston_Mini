@@ -8,6 +8,7 @@ import { ManageAccountComponent } from './manage-account/manage-account.componen
 import { AccountDetailComponent } from './manage-account/account-detail/account-detail.component';
 import { AddAccountComponent } from './manage-account/add-account/add-account.component';
 import { ProfileComponent } from '../profile/profile.component';
+import { ManageServiceComponent } from './manage-service/manage-service.component';
 
 const routes: Routes = [
   {
@@ -48,7 +49,8 @@ const routes: Routes = [
           },
         ],
       },
-      {path: 'Profile' , component: ProfileComponent}
+      {path: 'Profile' , component: ProfileComponent},
+      {path:'Service' , component:ManageServiceComponent}
     ],
   },
 ];
